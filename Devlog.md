@@ -1,6 +1,12 @@
 # Devlog
 
-## 4 November
+## 10th November
+After making the butterfly controller, it feels like this game is gonna be too big for the weekends scope.
+
+Now we need to switch to something else.
+
+
+## 4th November
 
 Finally got time to look at the theme and think of some ideas with Poonam.
 

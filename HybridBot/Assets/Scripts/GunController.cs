@@ -6,6 +6,7 @@ public class GunController : MonoBehaviour
 {
 
     public float turnSpeed = 100f;
+    float turnAxis;
 
     void Start()
     {
@@ -16,12 +17,12 @@ public class GunController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        turnControl();
+        turnAxis = Input.GetAxis("Mouse X");
     }
 
-    void turnControl()
+    void FixedUpdate()
     {
-        float h = turnSpeed * Time.deltaTime * Input.GetAxis("Mouse X");
-        transform.Rotate(0, h, 0);
+        float h = turnSpeed * Time.deltaTime * turnAxis;
+        transform.Rotate(new Vector3(0, h, 0));
     }
 }
