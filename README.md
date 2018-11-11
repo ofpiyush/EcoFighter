@@ -12,6 +12,7 @@ Theme for GithubGame off this year is *Hybrid*
 
 - Racing + shooting
 - Racing + platformer
+- You stop, you lose mechanic?
 
 ## Possible Game mechanics
 

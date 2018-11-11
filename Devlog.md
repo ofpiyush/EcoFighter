@@ -1,10 +1,20 @@
 # Devlog
 
+## 11th November
+
+Started blender and made a icosphere. First time using blender so :shrug:
+
+Camera control took forever to build. Solar charging, fuel depletion mechanic is up. FTW!
+
+Nights look fugly, I tried to hack the sun and turn it into a moon, but that looked even uglier.
+
+Made a look alike of old ass fuel tank from road fighter. Will use it to add some fuel to the bot.
+
 ## 10th November
+
 After making the butterfly controller, it feels like this game is gonna be too big for the weekends scope.
 
 Now we need to switch to something else.
-
 
 ## 4th November
 
