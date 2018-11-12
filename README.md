@@ -1,6 +1,6 @@
 # HybridBot
 
-Theme for GithubGame off this year is *Hybrid*
+Theme for GithubGameOff this year is *Hybrid*
 
 ## Core theme idea
 

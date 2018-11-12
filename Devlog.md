@@ -1,5 +1,13 @@
 # Devlog
 
+## 12th November
+
+Switched the fuel texture to Voxel from MagicaVoxel.
+
+![Fuel tank, Road Fighter](images/12-nov-fuel-voxel.png)
+
+Given how intuitive MagicaVoxel is, I think more of this game is going to be voxels now :)
+
 ## 11th November
 
 Started blender and made a icosphere. First time using blender so :shrug:
