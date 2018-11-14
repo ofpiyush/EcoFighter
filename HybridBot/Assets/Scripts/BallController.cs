@@ -43,35 +43,52 @@ public class BallController : MonoBehaviour
         {
             StopAudio();
         }
-        if (GameManager.instance.SunMultiplier > 0f)
+
+    }
+
+    void Recharge()
+    {
+        // If sun isn't shining, don't recharge.
+        if (GameManager.instance.SunMultiplier <= 0f)
         {
-            fuel += GameManager.instance.SunMultiplier * fuelChargeRate * Time.deltaTime;
-            if (fuel > maxFuel)
-            {
-                fuel = maxFuel;
-            }
+            return;
         }
+        ChangeFuel(GameManager.instance.SunMultiplier * fuelChargeRate * Time.deltaTime);
     }
     void FixedUpdate()
     {
 
+        Recharge();
         currentSpeed = rb.velocity.magnitude;
-        if (fuel > 0f && currentSpeed < topSpeed)
+        Move();
+        Jump();
+    }
+
+    void Move()
+    {
+        // Do not add force if out of fuel or at top speed
+        if (fuel <= 0f || currentSpeed >= topSpeed)
         {
-            Vector3 fwd = (racer.forward * forwardThrust + racer.right * sideThrust * 2f) * Time.deltaTime * speedMultiplier;
-            rb.AddForce(new Vector3(fwd.x, 0, fwd.z), ForceMode.VelocityChange);
-            if (fwd.magnitude > 0f)
-            {
-                fuel -= fuelBurnRate * Time.deltaTime;
-                if (fuel <= 0f)
-                {
-                    print("ran out of fuel");
-                    fuel = 0f;
-                }
-            }
+            return;
+        }
+
+        Vector3 fwd = (racer.forward * forwardThrust + racer.right * sideThrust * 2f) * Time.deltaTime * speedMultiplier;
+        rb.AddForce(new Vector3(fwd.x, 0, fwd.z), ForceMode.VelocityChange);
+        if (fwd.magnitude > 0f)
+        {
+            ChangeFuel(-fuelBurnRate * Time.deltaTime);
         }
     }
 
+    void Jump()
+    {
+
+    }
+
+    void ChangeFuel(float delta)
+    {
+        fuel = Mathf.Clamp(fuel + delta, 0f, maxFuel);
+    }
     void PlayRollingSound()
     {
         if (!isAudioPlaying)
