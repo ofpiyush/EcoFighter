@@ -1,5 +1,18 @@
 # Devlog
 
+## 15th November
+Morning brought a great sight. WoeUSB had completed successfully, installed Win while I got ready for work. Success!
+
+After work, opened MS Edge to download Chrome, installed Unity Hub and all supporting software that I'd need. Typing this on my Win10.
+
+## 14th November
+
+I didn't want to continue dev on the mac. It's fans were going crazy and it's old and potentially close to it's EOL. The desktop has far better specs anyway.
+
+Turns out unity doesn't officially support linux, so I had to bite the bullet and install windows on my desktop again.
+
+Writing the bootable USB win10 image from mac wasn't easy. Ubuntu did slightly better. WoeUSB was taking too long to copy files into the USB drive, I just went to sleep halfway through the copying.
+
 ## 12th November
 
 Switched the fuel texture to Voxel from MagicaVoxel.
