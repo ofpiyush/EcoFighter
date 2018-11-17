@@ -7,22 +7,23 @@ public class GunController : MonoBehaviour
 
     public float turnSpeed = 100f;
     float turnAxis;
+    float vertAxis;
 
-    void Start()
-    {
-        //Screen.lockCursor = true;
-        Cursor.lockState = UnityEngine.CursorLockMode.Confined;
-        Cursor.visible = false;
-    }
+    float yaw;
+    float pitch;
+
+
     // Update is called once per frame
     void Update()
     {
         turnAxis = Input.GetAxis("Mouse X");
+        vertAxis = Input.GetAxis("Mouse Y");
     }
 
     void FixedUpdate()
     {
-        float h = turnSpeed * Time.deltaTime * turnAxis;
-        transform.Rotate(new Vector3(0, h, 0));
+        yaw += turnSpeed * Time.deltaTime * turnAxis;
+        pitch = Mathf.Clamp(pitch- turnSpeed * Time.deltaTime * vertAxis, -25f, 25f);
+        transform.eulerAngles = new Vector3(pitch, yaw, 0f);
     }
 }

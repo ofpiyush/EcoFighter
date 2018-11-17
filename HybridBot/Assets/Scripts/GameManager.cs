@@ -20,6 +20,11 @@ public class GameManager : MonoBehaviour
         }
         DontDestroyOnLoad(gameObject);
     }
+
+    void Start() {
+        Cursor.lockState = UnityEngine.CursorLockMode.Confined;
+        Cursor.visible = false;
+    }
     void SetDay()
     {
 
