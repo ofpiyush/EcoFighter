@@ -48,7 +48,6 @@ public class BallController : MonoBehaviour
 
     void Recharge()
     {
-        print("recharging " + GameManager.instance.SunMultiplier);
         // If sun isn't shining, don't recharge.
         if (GameManager.instance.SunMultiplier <= 0f)
         {
@@ -74,7 +73,7 @@ public class BallController : MonoBehaviour
             return;
         }
 
-        Vector3 fwd = (racer.forward * forwardThrust + racer.right * sideThrust * 2f) * Time.deltaTime * speedMultiplier;
+        Vector3 fwd = (racer.forward * forwardThrust + racer.right * sideThrust) * Time.deltaTime * speedMultiplier;
         rb.AddForce(new Vector3(fwd.x, 0, fwd.z), ForceMode.VelocityChange);
         if (forwardThrust+sideThrust > 0f)
         {
