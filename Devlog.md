@@ -1,5 +1,10 @@
 # Devlog
 
+## 17th November
+We can't use similar looking game assets from older games so the idea of taking elements from games I've loved growing up is out the window (T.T)
+
+Given that so much of the time is already wasted, we've decided to make a shooter.
+
 ## 15th November
 Morning brought a great sight. WoeUSB had completed successfully, installed Win while I got ready for work. Success!
 
