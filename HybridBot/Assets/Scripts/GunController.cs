@@ -14,6 +14,7 @@ public class GunController : MonoBehaviour {
     private LineRenderer laserLine;
     private Color originalColor;
     private Charger charger;
+    private Camera fpsCam;
     
     private void Awake() {
         charger = GetComponent<Charger>();
@@ -21,6 +22,7 @@ public class GunController : MonoBehaviour {
         if (laserLine != null) {
             laserLine.enabled = false;
         }
+        fpsCam = Camera.main;
         originalColor = laserLine.material.color;
     }
 
@@ -56,6 +58,7 @@ public class GunController : MonoBehaviour {
     }
 
 
+
     private IEnumerator ShotEffect() {
         
         //yield return shotDuration;
@@ -64,7 +67,7 @@ public class GunController : MonoBehaviour {
         while(elapsed < shotDuration) {
             RaycastHit hit;
             laserLine.SetPosition (0, SpawnPoint.transform.position);
-            if(Physics.Raycast(SpawnPoint.transform.position,transform.forward, out hit, range)) {
+            if(Physics.Raycast(fpsCam.transform.position,fpsCam.transform.forward, out hit, range)) {
                 laserLine.SetPosition (1, hit.point);
                 if (hit.collider.tag == "Enemy") {
                     laserLine.material.color = Color.red;
@@ -73,10 +76,10 @@ public class GunController : MonoBehaviour {
                 }
             } else {
                 laserLine.material.color = originalColor;
-                laserLine.SetPosition (1, SpawnPoint.transform.position + (transform.forward * range));
+                laserLine.SetPosition (1, SpawnPoint.transform.position + (fpsCam.transform.forward * range));
                 //Debug.DrawRay(transform.position, transform.position + (transform.forward * range), Color.white);
             }
-            yield return null;
+            yield return 0.1;
             laserLine.enabled = true;
             elapsed = Time.time-start;
         }

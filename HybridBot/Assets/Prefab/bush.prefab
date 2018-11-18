@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 23792426022856414}
   - component: {fileID: 64962181973893222}
   - component: {fileID: 114592122597283870}
+  - component: {fileID: 114012236996849250}
   m_Layer: 0
   m_Name: bush
   m_TagString: Vegetation
@@ -99,6 +100,19 @@ MeshCollider:
   m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: a8e6ea647c0fbe747ab7908f84fd3307, type: 3}
+--- !u!114 &114012236996849250
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1262932619320986}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb5a61e542446d844a8769456d4e1d89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 0
+  MaxHealth: 30
 --- !u!114 &114592122597283870
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -61,7 +61,7 @@ public class PlayerController : MonoBehaviour
         }
 
         Vector3 fwd = (racer.forward * forwardThrust + racer.right * sideThrust) * Time.deltaTime * speedMultiplier;
-        rb.AddForce(fwd, ForceMode.VelocityChange);
+        rb.AddForce(new Vector3(fwd.x,0f,fwd.z), ForceMode.VelocityChange);
         if (fwd.magnitude > 0f)
         {
             charger.Discharge(chargeBurnRate * Time.deltaTime);

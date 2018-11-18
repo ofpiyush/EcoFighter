@@ -9,7 +9,7 @@ public class Grow : MonoBehaviour {
 
 	void FixedUpdate () {
 		if(transform.localScale.x < maxSize) {
-			transform.localScale = transform.localScale* (1+ ((GrowRate * Time.deltaTime)/transform.localScale.x));
+			transform.localScale = transform.localScale* (1+ ((GrowRate * GameManager.instance.SunMultiplier * Time.deltaTime)/transform.localScale.x));
 		} else {
 			Destroy(this);
 		}

@@ -26,7 +26,7 @@ GameObject:
   - component: {fileID: 208463226024916256}
   m_Layer: 0
   m_Name: factory_blue
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -38,7 +38,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1056172347323136}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0.1205}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.005, y: 0.005, z: 0.005}
   m_Children: []
   m_Father: {fileID: 0}
@@ -111,7 +111,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb5a61e542446d844a8769456d4e1d89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 1000
+  MaxHealth: 200
 --- !u!208 &208463226024916256
 NavMeshObstacle:
   m_ObjectHideFlags: 1
@@ -123,7 +123,7 @@ NavMeshObstacle:
   m_Shape: 1
   m_Extents: {x: 10, y: 7.5000005, z: 5}
   m_MoveThreshold: 0.1
-  m_Carve: 1
+  m_Carve: 0
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 7.5000005, z: 0}
   m_TimeToStationary: 0.5

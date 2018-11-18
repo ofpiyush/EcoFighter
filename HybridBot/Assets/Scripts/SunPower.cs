@@ -8,22 +8,21 @@ public class SunPower : MonoBehaviour {
     float MaxY = 0f;
     float MaxIntensity = 0f;
     
-    Light light;
+    Light sunL;
     private void Awake() {
-        light = GetComponent<Light>();
-        // We hope that we start at maxY
-        
-        MaxIntensity = light.intensity;
+        sunL = GetComponent<Light>();
+        MaxIntensity = sunL.intensity;
        
     }
 	private void Start() {
+        // We hope that we start at maxY
         MaxY = transform.position.y;
         SetMultiplier();
     }
 	// Update is called once per frame
 	void FixedUpdate () {
 		SetMultiplier();
-        light.intensity = GameManager.instance.SunMultiplier * MaxIntensity;
+        sunL.intensity = GameManager.instance.SunMultiplier * MaxIntensity;
 	}
 	void SetMultiplier()
     {
