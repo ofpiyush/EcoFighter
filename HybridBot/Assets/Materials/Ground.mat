@@ -11,7 +11,7 @@ Material:
   m_ShaderKeywords: _ALPHATEST_ON
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 1
-  m_DoubleSidedGI: 1
+  m_DoubleSidedGI: 0
   m_CustomRenderQueue: 2450
   stringTagMap:
     RenderType: TransparentCutout
@@ -61,9 +61,9 @@ Material:
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
     - _GlossMapScale: 0.159
-    - _Glossiness: 0.371
+    - _Glossiness: 0
     - _GlossyReflections: 1
-    - _Metallic: 0.919
+    - _Metallic: 0.356
     - _Mode: 1
     - _OcclusionStrength: 1
     - _Parallax: 0.02

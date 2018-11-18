@@ -6,27 +6,27 @@ public class SunPower : MonoBehaviour {
 
     public float switchAtY = -80f;
     float MaxY = 0f;
-    void Start()
-    {
-        // We should always start at max Y (please)
-        MaxY = transform.position.y;
-        SetMode();
+    float MaxIntensity = 0f;
+    
+    Light light;
+    private void Awake() {
+        light = GetComponent<Light>();
+        // We hope that we start at maxY
+        
+        MaxIntensity = light.intensity;
+       
     }
-	
+	private void Start() {
+        MaxY = transform.position.y;
+        SetMultiplier();
+    }
 	// Update is called once per frame
 	void FixedUpdate () {
-		SetMode();
+		SetMultiplier();
+        light.intensity = GameManager.instance.SunMultiplier * MaxIntensity;
 	}
-	void SetMode()
+	void SetMultiplier()
     {
-
-        if (transform.position.y < switchAtY)
-        {
-            GameManager.instance.SunMultiplier = 0f;
-        }
-        else
-        {
-            GameManager.instance.SunMultiplier = (transform.position.y - switchAtY) / MaxY;
-        }
+        GameManager.instance.SunMultiplier = Mathf.Clamp((transform.position.y - switchAtY) / MaxY,0f,1f);
     }
 }

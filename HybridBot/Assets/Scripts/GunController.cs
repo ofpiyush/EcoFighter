@@ -4,21 +4,19 @@ using UnityEngine;
 
 public class GunController : MonoBehaviour {
 
-	bool isShooting = false;
     public float damage = 10f;
     public float range = 1.5f;
-    public float MaxCharge = 10f;
 
-    public float ThrowForce = 10f;
+    public float ThrowForce = 1f;
     public Transform SpawnPoint;
     public GameObject Bomb;
-    public float charge = 0f;
     float shotDuration = 0.25f;
     private LineRenderer laserLine;
     private Color originalColor;
+    private Charger charger;
     
     private void Awake() {
-        charge = MaxCharge;
+        charger = GetComponent<Charger>();
         laserLine = GetComponent<LineRenderer>();
         if (laserLine != null) {
             laserLine.enabled = false;
@@ -28,7 +26,6 @@ public class GunController : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-        Recharge();
         if(Input.GetButtonDown("Fire1"))  {
             ShootOne();
         }
@@ -37,43 +34,25 @@ public class GunController : MonoBehaviour {
         }
 	}
 
-    void Recharge() {
-        if (GameManager.instance.SunMultiplier <= 0f)
-        {
-            return;
-        }
-
-        ChangeFuel(GameManager.instance.SunMultiplier * Time.deltaTime);
-    }
-
-    bool ChangeFuel(float delta)
-    {
-        charge = Mathf.Clamp(charge + delta, 0f, MaxCharge);
-        return charge > 0;
-    }
+   
 
     void ThrowOne() {
-        float discharge = -5f;
-        if (charge + discharge < 0f) {
+        if (!charger.Discharge(5f)) {
             return;
         }
-        ChangeFuel(discharge);
+
         GameObject bomb = Instantiate(Bomb, SpawnPoint.position, Quaternion.identity);
-        bomb.GetComponent<Rigidbody>().AddForce(transform.forward);
+        bomb.GetComponent<Rigidbody>().AddForce(transform.forward*ThrowForce);
     }
 
     void ShootOne() {
-        float discharge = -(damage/10f);
-        if (charge + discharge < 0f) {
+        // Lose 1/10th of damage value
+        if (!charger.Discharge( damage/10f)) {
             return;
         }
 
-        // Lose 1/10th of damage value
-        ChangeFuel(discharge);
         StopCoroutine(ShotEffect());
         StartCoroutine(ShotEffect());
-        
-
     }
 
 

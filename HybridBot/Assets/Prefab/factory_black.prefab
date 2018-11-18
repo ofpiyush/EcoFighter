@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 23783685555836172}
   - component: {fileID: 64416966234702438}
   - component: {fileID: 114050130924258498}
+  - component: {fileID: 208156013073681742}
   m_Layer: 0
   m_Name: factory_black
   m_TagString: Untagged
@@ -111,3 +112,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 1000
+--- !u!208 &208156013073681742
+NavMeshObstacle:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1339930001580208}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 10.500001, y: 8, z: 5}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 8, z: 0}
+  m_TimeToStationary: 0.5
