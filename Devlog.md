@@ -1,11 +1,22 @@
 # Devlog
 
+## 19th November
+
+Making a list of things left to do in the game. From now on, we've to try hard to not let the scope creep.
+
 ## 18th November
 Today was an especially productive day. Half of the mechanics look done.
 
 Made the terrain and wrote some code. Poonam made the Voxel enemies and factories.
 
-Enemy has area effect on the player and vegetation, player shoots enemies and factories, player can plant seeds.
+![Black Factory](images/evil-factory.png)
+
+![Voxel Enemy](images/voxel-enemy.png)
+
+Enemy has area effect on the player and vegetation, player shoots enemies and factories.
+
+Player can plant seeds, bushes grow on their own.
+
 
 ## 17th November
 We can't use similar looking game assets from older games so the idea of taking elements from games I've loved growing up is out the window (T.T)
