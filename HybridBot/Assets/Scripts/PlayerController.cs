@@ -20,11 +20,17 @@ public class PlayerController : MonoBehaviour
 
     bool isAudioPlaying = false;
     Charger charger;
+    Health health;
+
+    bool canMove = true;
+    bool canShoot = true;
 
     private void Awake()
     {
         charger = GetComponent<Charger>();
         audioData = GetComponent<AudioSource>();
+        health = GetComponent<Health>();
+        health.SetDeathDelegate(this.Die);
         rb = GetComponent<Rigidbody>();
         audioData.loop = true;
     }
@@ -86,6 +92,10 @@ public class PlayerController : MonoBehaviour
     {
         audioData.Stop();
         isAudioPlaying = false;
+    }
+
+    void Die() {
+        Debug.Log("Press F to pay respects"+ this.speedMultiplier);
     }
 
 

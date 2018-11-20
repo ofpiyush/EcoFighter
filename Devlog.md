@@ -1,5 +1,9 @@
 # Devlog
 
+## 20th November
+
+Got very little time today.  Learnt about delegates in C# and installed BoscaCoeil. Music is going to be a challenge it feels like.
+
 ## 19th November
 
 Making a list of things left to do in the game. From now on, we've to try hard to not let the scope creep.

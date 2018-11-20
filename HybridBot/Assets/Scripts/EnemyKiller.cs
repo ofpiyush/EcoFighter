@@ -10,22 +10,23 @@ public class EnemyKiller : MonoBehaviour {
 		ctl = GetComponentInParent<EnemyController>();
 	}
 	private void OnTriggerEnter(Collider other) {
-		if(other.tag == "Vegetation") {
-			Health health = other.GetComponent<Health>();
-			if(health) {
-				health.TakeDamage(damage);
-			}
-		} else	if(other.tag == "Player") {
+		if(other.tag =="Player") {
 			ctl.FoundPlayer();
-			Health health = other.GetComponent<Health>();
-			if(health) {
-				health.TakeDamage(damage);
-			}
 		}
 	}
 
 	private void OnTriggerStay(Collider other) {
-		
+		if(other.tag == "Vegetation") {
+			Health health = other.GetComponent<Health>();
+			if(health) {
+				health.TakeDamage(damage*Time.deltaTime);
+			}
+		} else	if(other.tag == "Player") {
+			Health health = other.GetComponent<Health>();
+			if(health) {
+				health.TakeDamage(damage*Time.deltaTime);
+			}
+		}
 	}
 
 	private void OnTriggerExit(Collider other) {

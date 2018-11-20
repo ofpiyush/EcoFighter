@@ -7,6 +7,11 @@ public class GameManager : MonoBehaviour
 
     public static GameManager instance;
     public float SunMultiplier = 0f;
+
+    public float pollutionLevel = 0f;
+
+    public float pollutionBackgroundRate = 1.5f;
+
     void Awake()
     {
         if (GameManager.instance == null)

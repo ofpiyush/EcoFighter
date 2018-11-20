@@ -31,7 +31,7 @@ Pendu has to keep balance and survive the poisonous pollutants emitted from fact
 
 - [x] Add shooting logic
 
-- [ ] Add area of effect for enemy draining health
+- [x] Add area of effect for enemy draining health
 
 - [ ] Add bush and factory pollution logic
 
