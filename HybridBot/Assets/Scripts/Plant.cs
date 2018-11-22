@@ -25,7 +25,8 @@ public class Plant : MonoBehaviour {
 		if(instantiated) {
 			return;
 		}
-		Instantiate(obj, transform.position, Quaternion.identity);
+		float yRand = Random.Range(0.001f, 0.015f);
+		Instantiate(obj,  transform.position - (Vector3.up *yRand), Quaternion.identity);
 		instantiated = true;
 		Destroy(gameObject);
 	}

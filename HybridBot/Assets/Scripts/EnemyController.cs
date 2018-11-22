@@ -12,7 +12,7 @@ public class EnemyController : MonoBehaviour
     public Transform player;
     public float waitBeforeSpawn = 10f; 
 
-    float MinScale = 0.0001f;
+    float MinScale = 0.0025f;
     float MaxScale;
 
     float minX = -1.5f;

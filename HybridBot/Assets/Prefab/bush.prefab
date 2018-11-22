@@ -113,6 +113,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 0
   MaxHealth: 30
+  showHealthBar: 1
+  fixedBar: 0
+  yOffset: 0.025
+  barScale: 0.25
+  bar: {fileID: 0}
 --- !u!114 &114592122597283870
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -124,4 +129,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f108934af83fe24aae034596dfeba7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GrowRate: 0.05
+  GrowRate: 0.5

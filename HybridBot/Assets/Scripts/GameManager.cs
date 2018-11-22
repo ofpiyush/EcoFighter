@@ -5,6 +5,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
 
+    public GameObject HealthBar;
     public static GameManager instance;
     public float SunMultiplier = 0f;
 

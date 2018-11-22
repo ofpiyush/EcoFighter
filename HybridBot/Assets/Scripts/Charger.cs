@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Charger : MonoBehaviour {
 
@@ -9,8 +10,14 @@ public class Charger : MonoBehaviour {
 
 	public float chargeRate = 1f;
 	float charge;
+
+	public Slider fill;
 	private void Awake() {
-		charge = MaxCharge/2f;
+		charge = MaxCharge;
+	}
+
+	private void Start() {
+		DrawFill();
 	}
 	void FixedUpdate () {
 		Recharge();
@@ -35,7 +42,14 @@ public class Charger : MonoBehaviour {
     public void AddCharge(float delta)
     {
         charge = Mathf.Clamp(charge + delta, 0f, MaxCharge);
+		DrawFill();
     }
+
+	void DrawFill(){
+		if(fill != null) {
+			fill.value = charge/MaxCharge;
+		}
+	}
 
 	public bool HasCharge() {
 		return charge > 0f;

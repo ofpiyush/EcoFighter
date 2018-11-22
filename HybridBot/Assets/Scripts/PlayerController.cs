@@ -39,8 +39,9 @@ public class PlayerController : MonoBehaviour
         forwardThrust = Input.GetAxis("Vertical");
         sideThrust = Input.GetAxis("Horizontal");
 
-        if (rb.velocity.magnitude > 3f)
+        if (currentSpeed > 0f)
         {
+            Debug.Log("play sound");
             PlayRollingSound();
         }
         else
