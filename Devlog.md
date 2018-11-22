@@ -1,5 +1,11 @@
 # Devlog
 
+## 22nd November
+
+Added some enemy and factory music. Made a very basic HUD.
+
+![Night HUD](images/night-hud.png)
+
 ## 20th November
 
 Got very little time today.  Learnt about delegates in C# and installed BoscaCoeil. Music is going to be a challenge it feels like.

@@ -35,7 +35,7 @@ Pendu has to keep balance and survive the poisonous pollutants emitted from fact
 
 - [ ] Add bush and factory pollution logic
 
-- [ ] Plan HUD
+- [X] Plan HUD
 
 - [ ] Plan Game music
 
