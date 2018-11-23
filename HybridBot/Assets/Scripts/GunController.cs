@@ -49,7 +49,7 @@ public class GunController : MonoBehaviour {
 
     void ShootOne() {
         // Lose 1/10th of damage value
-        if (!charger.Discharge( damage/10f)) {
+        if (!charger.Discharge(damage/10f)) {
             return;
         }
 

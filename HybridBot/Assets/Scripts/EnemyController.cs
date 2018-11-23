@@ -71,9 +71,9 @@ public class EnemyController : MonoBehaviour
             return;
         }
         if((Time.time- lastInstantiatedTime) > waitBeforeSpawn && Random.Range(0f, 1f) > 0.75f) {
-            int i = Random.Range(0,Factories.Count-1);
+            int i = Random.Range(0, Factories.Count);
             GameObject factory = Instantiate(Factories[i]);
-            factory.transform.position = new Vector3(transform.position.x, -0.02f, transform.position.z);
+            factory.transform.position = new Vector3(transform.position.x, 0.005f, transform.position.z);
             lastInstantiatedTime = Time.time;
         }
     }

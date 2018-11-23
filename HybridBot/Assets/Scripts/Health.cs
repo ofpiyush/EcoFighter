@@ -12,6 +12,7 @@ public class Health : MonoBehaviour {
 	public float yOffset = 0.1f;
 	public float barScale = 1f;
 	bool canTakeDamage = true;
+	public float pollutionDamage = 0f;
 
 	OnDeath onDeath;
 
@@ -33,10 +34,12 @@ public class Health : MonoBehaviour {
 		health = Mathf.Clamp(health-damage,0f,MaxHealth);
 		RefreshHealthBar();
 		CheckDie();
-
 	}
 
 	private void FixedUpdate() {
+		if (pollutionDamage >0f) {
+			TakeDamage(pollutionDamage*((2f*GameManager.instance.PollutionPercentage)-0.5f));
+		}
 		RepositionBar();
 	}
 
@@ -49,8 +52,6 @@ public class Health : MonoBehaviour {
 			FindAndMakeFill();
 		}
 		fill.value = health/MaxHealth;
-		RepositionBar();
-
 	}
 
 	void FindAndMakeFill() {

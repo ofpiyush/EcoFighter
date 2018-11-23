@@ -1,5 +1,13 @@
 # Devlog
 
+## 23rd November
+
+Added pollution logic today. This game needs lots of balancing.
+
+Player movement was wonky, fixed that.
+
+Only one kind of factory was getting spawned, fixed that as well.
+
 ## 22nd November
 
 Added some enemy and factory music. Made a very basic HUD.

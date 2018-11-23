@@ -117,6 +117,7 @@ MonoBehaviour:
   fixedBar: 0
   yOffset: 0.025
   barScale: 0.25
+  pollutionDamage: 0
   bar: {fileID: 0}
 --- !u!114 &114592122597283870
 MonoBehaviour:

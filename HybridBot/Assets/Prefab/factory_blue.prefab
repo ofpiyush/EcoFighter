@@ -213,6 +213,7 @@ MonoBehaviour:
   fixedBar: 0
   yOffset: 0.1
   barScale: 1
+  pollutionDamage: 0
   bar: {fileID: 0}
 --- !u!208 &208463226024916256
 NavMeshObstacle:

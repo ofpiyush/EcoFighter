@@ -39,15 +39,15 @@ public class PlayerController : MonoBehaviour
         forwardThrust = Input.GetAxis("Vertical");
         sideThrust = Input.GetAxis("Horizontal");
 
-        if (currentSpeed > 0f)
-        {
-            Debug.Log("play sound");
-            PlayRollingSound();
-        }
-        else
-        {
-            StopAudio();
-        }
+        // if (currentSpeed > 0f)
+        // {
+        //     Debug.Log("play sound");
+        //     PlayRollingSound();
+        // }
+        // else
+        // {
+        //     StopAudio();
+        // }
 
     }
 
@@ -67,8 +67,12 @@ public class PlayerController : MonoBehaviour
             return;
         }
 
-        Vector3 fwd = (racer.forward * forwardThrust + racer.right * sideThrust) * Time.deltaTime * speedMultiplier;
-        rb.AddForce(new Vector3(fwd.x,0f,fwd.z), ForceMode.VelocityChange);
+        Vector3 fwd = (racer.forward * forwardThrust + racer.right * sideThrust);
+        fwd = new Vector3(fwd.x,0,fwd.z);
+        fwd.Normalize();
+
+        
+        rb.AddForce(fwd* Time.deltaTime * speedMultiplier, ForceMode.VelocityChange);
         if (fwd.magnitude > 0f)
         {
             charger.Discharge(chargeBurnRate * Time.deltaTime);
