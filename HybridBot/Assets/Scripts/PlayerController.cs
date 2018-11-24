@@ -22,9 +22,6 @@ public class PlayerController : MonoBehaviour
     Charger charger;
     Health health;
 
-    bool canMove = true;
-    bool canShoot = true;
-
     private void Awake()
     {
         charger = GetComponent<Charger>();
@@ -61,8 +58,11 @@ public class PlayerController : MonoBehaviour
 
     void Move()
     {
+        if (health.isDead) {
+            return;
+        }
         // Do not add force if out of charge or at top speed
-        if ((!charger.HasCharge()) || currentSpeed >= topSpeed)
+        if ((!charger.HasCharge(chargeBurnRate * Time.deltaTime)) || currentSpeed >= topSpeed)
         {
             return;
         }
@@ -100,7 +100,7 @@ public class PlayerController : MonoBehaviour
     }
 
     void Die() {
-        Debug.Log("Press F to pay respects"+ this.speedMultiplier);
+        GameManager.instance.GameOver();
     }
 
 

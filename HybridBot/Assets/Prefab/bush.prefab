@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 64962181973893222}
   - component: {fileID: 114592122597283870}
   - component: {fileID: 114012236996849250}
+  - component: {fileID: 114231773147877878}
   m_Layer: 0
   m_Name: bush
   m_TagString: Vegetation
@@ -112,6 +113,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 0
+  isDead: 0
   MaxHealth: 30
   showHealthBar: 1
   fixedBar: 0
@@ -119,6 +121,28 @@ MonoBehaviour:
   barScale: 0.25
   pollutionDamage: 0
   bar: {fileID: 0}
+--- !u!114 &114231773147877878
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1262932619320986}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3be40a0d8884dff44a03ef76de741286, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Items:
+  - probability: 0.2
+    obj: {fileID: 1790555382214356, guid: 49dcf1f21971aa04e87dd80090c17c28, type: 2}
+    pickable: {fileID: 0}
+  - probability: 0.05
+    obj: {fileID: 1064256030116070, guid: c4f1f41b69467dc4d83e4d10b8028732, type: 2}
+    pickable: {fileID: 0}
+  - probability: 0.02
+    obj: {fileID: 1885213978201126, guid: 4bfab3749559d454fa5f6d487e132ea8, type: 2}
+    pickable: {fileID: 0}
+  spawnDelay: 30
 --- !u!114 &114592122597283870
 MonoBehaviour:
   m_ObjectHideFlags: 1

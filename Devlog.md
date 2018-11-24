@@ -1,5 +1,12 @@
 # Devlog
 
+
+## 24th November
+
+Added detailed HUD. Added minimap. Added resource spawning and pick up logic. Buffed up the enemy, trying balance fixes. It took too many days to win!
+
+![Full HUD and Resource](images/full-hud-and-resource.png)
+
 ## 23rd November
 
 Added pollution logic today. This game needs lots of balancing.

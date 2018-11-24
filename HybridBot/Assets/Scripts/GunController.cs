@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GunController : MonoBehaviour {
 
@@ -8,12 +9,15 @@ public class GunController : MonoBehaviour {
     public float range = 1.5f;
 
     public float ThrowForce = 1f;
+    int Seeds = 25;
+    int MaxSeeds = 50;
+    public Text SeedCount;
     public Transform SpawnPoint;
     public GameObject Bomb;
     float shotDuration = 0.25f;
     private LineRenderer laserLine;
     private Color originalColor;
-    private Charger charger;
+    public Charger charger;
     private Camera fpsCam;
     
     private void Awake() {
@@ -24,6 +28,7 @@ public class GunController : MonoBehaviour {
         }
         fpsCam = Camera.main;
         originalColor = laserLine.material.color;
+        AddSeeds(0);
     }
 
 	// Update is called once per frame
@@ -37,12 +42,25 @@ public class GunController : MonoBehaviour {
 	}
 
     void ThrowOne() {
-        if (!charger.Discharge(5f)) {
+        if(Seeds == 0 || !charger.Discharge(2f)) {
             return;
         }
 
         GameObject bomb = Instantiate(Bomb, SpawnPoint.position, Quaternion.identity);
         bomb.GetComponent<Rigidbody>().AddForce(transform.forward*ThrowForce);
+        AddSeeds(-1);
+    }
+
+    public int AddSeeds(int delta) {
+        int returnVal = 0;
+        if(Seeds + delta > MaxSeeds) {
+            returnVal = Seeds + delta - MaxSeeds;
+        }
+        
+        Seeds = Mathf.Clamp(Seeds+delta, 0, MaxSeeds);
+
+        SeedCount.text = Seeds.ToString("00");
+        return returnVal;
     }
 
     void ShootOne() {

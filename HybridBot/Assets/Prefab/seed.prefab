@@ -127,7 +127,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb5a61e542446d844a8769456d4e1d89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health: 0
+  isDead: 0
   MaxHealth: 10
+  showHealthBar: 0
+  fixedBar: 0
+  yOffset: 0.1
+  barScale: 1
+  pollutionDamage: 0
+  bar: {fileID: 0}
 --- !u!114 &114503048013920356
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -6,7 +6,7 @@ Theme for GithubGameOff this year is *Hybrid*
 
 ### Low poly vs Voxel characters.
 
-Voxels are polluting the environment and low poly character are fighting climate change.
+Voxels are polluting the environment and a lone low poly character is fighting climate change.
 
 ## Lore
 The arena is a happy low poly land. Pendu (player, icosphere) runs on solar power, roams around the arena planting bushes and keeping natural pollution levels in check.

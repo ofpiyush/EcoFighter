@@ -6,12 +6,14 @@ using UnityEngine.UI;
 public delegate void OnDeath();
 public class Health : MonoBehaviour {
 	public float health = 0f;
+
+	public bool isDead = false;
 	public float MaxHealth = 100f;
 	public bool showHealthBar;
 	public bool fixedBar;
 	public float yOffset = 0.1f;
 	public float barScale = 1f;
-	bool canTakeDamage = true;
+	bool canMutateHealth = true;
 	public float pollutionDamage = 0f;
 
 	OnDeath onDeath;
@@ -21,6 +23,7 @@ public class Health : MonoBehaviour {
 
 	private void Start() {
 		health = MaxHealth;
+		isDead = false;
 		if (bar != null) {
 			FindAndMakeFill();
 			fill.value = health/MaxHealth;
@@ -28,12 +31,21 @@ public class Health : MonoBehaviour {
 	}
 
 	public void TakeDamage(float damage) {
-		if (!canTakeDamage) {
-			return;
+		AddHealth(-damage);
+	}
+
+	public float AddHealth(float delta) {
+		if (!canMutateHealth) {
+			return delta;
 		}
-		health = Mathf.Clamp(health-damage,0f,MaxHealth);
+		float returnValue = 0f;
+		if ((health+delta) > MaxHealth ) {
+			returnValue = health+delta-MaxHealth;
+		}
+		health = Mathf.Clamp(health+delta,0f,MaxHealth);
 		RefreshHealthBar();
 		CheckDie();
+		return returnValue;
 	}
 
 	private void FixedUpdate() {
@@ -71,7 +83,8 @@ public class Health : MonoBehaviour {
 		if (health > 0f) {
 			return;
 		}
-		canTakeDamage = false;
+		canMutateHealth = false;
+		isDead = true;
 		if(onDeath != null) {
 			onDeath();
 		} else {

@@ -9,16 +9,13 @@ public class Charger : MonoBehaviour {
     public float MaxCharge = 10f;
 
 	public float chargeRate = 1f;
+
+	public float initialCharge = 10f;
 	float charge;
-
-
-    public Image fillImage;
-
-	public Gradient gradient;
 
 	public Slider fill;
 	private void Awake() {
-		charge = MaxCharge;
+		charge = initialCharge;
 	}
 
 	private void Start() {
@@ -38,24 +35,25 @@ public class Charger : MonoBehaviour {
 	public bool Discharge(float delta) {
 		if (!HasCharge(delta)) {
 			// Zero out the charge if we can't discharge the minimum requirement
-			charge = 0f;
+			//charge = 0f;
 			return false;
 		}
 		AddCharge(-delta);
 		return true;
 	}
-    public void AddCharge(float delta)
+    public float AddCharge(float delta)
     {
+		float returnValue = 0f;
+		if ((charge + delta) > MaxCharge) {
+			returnValue = charge + delta - MaxCharge;
+		}
         charge = Mathf.Clamp(charge + delta, 0f, MaxCharge);
 		DrawFill();
+		return returnValue;
     }
 
 	void DrawFill() {
 		float ChargePercentage = charge/MaxCharge;
-
-		if(fillImage != null) {
-			fillImage.color = gradient.Evaluate(ChargePercentage);
-		}
 
 		if(fill != null) {
 			fill.value = ChargePercentage;

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
@@ -22,14 +23,6 @@ public class GameManager : MonoBehaviour
 
     public float MaxPollutionLevel = 500f;
 
-
-    public Slider pollutionBar;
-
-    public Image pollutionImage;
-
-    public Gradient pollutionGradient;
-
-
     void Awake()
     {
         if (GameManager.instance == null)
@@ -50,15 +43,26 @@ public class GameManager : MonoBehaviour
     }
 
 
+    public void GameOver() {
+        ResetPollution();
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
     void CalcPollutionLevel() {
-        pollutionLevel += (
+        AddPollution(
+        (
             pollutionBackgroundRate + 
             (GameObject.FindGameObjectsWithTag("Enemy").Length*factoryPollutionMake) - 
             (GameObject.FindGameObjectsWithTag("Vegetation").Length*bushPollutionKill)
-            ) * Time.fixedDeltaTime;
+            ) * Time.fixedDeltaTime
+        );
+    }
 
+    void ResetPollution() {
+        AddPollution(-pollutionLevel);
+    }
+    void AddPollution(float level) {
+        pollutionLevel = Mathf.Clamp(pollutionLevel + level, 0f, MaxPollutionLevel);
         PollutionPercentage = pollutionLevel/MaxPollutionLevel;
-        pollutionBar.value = PollutionPercentage;
-        pollutionImage.color = pollutionGradient.Evaluate(PollutionPercentage);
     }
 }

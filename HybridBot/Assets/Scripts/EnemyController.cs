@@ -12,6 +12,8 @@ public class EnemyController : MonoBehaviour
     public Transform player;
     public float waitBeforeSpawn = 10f; 
 
+    public float factoryHealthGen = 7f;
+
     float MinScale = 0.0025f;
     float MaxScale;
 
@@ -43,9 +45,14 @@ public class EnemyController : MonoBehaviour
         //RandomMove();
         FollowPlayer();
         SpawnFactory();
+        FactoryHeal();
         ResizeOnHealth();
     }
 
+
+    void FactoryHeal() {
+        health.TakeDamage(-factoryHealthGen*GameObject.FindGameObjectsWithTag("Enemy").Length*Time.fixedDeltaTime);
+    }
 
     void ResizeOnHealth() {
         float scale = Mathf.Clamp(health.PercentHealth()*MaxScale,MinScale,MaxScale);
