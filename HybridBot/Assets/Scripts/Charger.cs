@@ -11,6 +11,11 @@ public class Charger : MonoBehaviour {
 	public float chargeRate = 1f;
 	float charge;
 
+
+    public Image fillImage;
+
+	public Gradient gradient;
+
 	public Slider fill;
 	private void Awake() {
 		charge = MaxCharge;
@@ -45,9 +50,15 @@ public class Charger : MonoBehaviour {
 		DrawFill();
     }
 
-	void DrawFill(){
+	void DrawFill() {
+		float ChargePercentage = charge/MaxCharge;
+
+		if(fillImage != null) {
+			fillImage.color = gradient.Evaluate(ChargePercentage);
+		}
+
 		if(fill != null) {
-			fill.value = charge/MaxCharge;
+			fill.value = ChargePercentage;
 		}
 	}
 

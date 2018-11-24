@@ -36,8 +36,6 @@ public class GunController : MonoBehaviour {
         }
 	}
 
-   
-
     void ThrowOne() {
         if (!charger.Discharge(5f)) {
             return;
