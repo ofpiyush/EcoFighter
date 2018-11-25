@@ -49,6 +49,9 @@ public class Health : MonoBehaviour {
 	}
 
 	private void FixedUpdate() {
+		if(PauseMenu.IsPaused) {
+			return;
+		}
 		if (pollutionDamage >0f) {
 			TakeDamage(pollutionDamage*((2f*GameManager.instance.PollutionPercentage)-0.5f));
 		}
@@ -90,6 +93,9 @@ public class Health : MonoBehaviour {
 		} else {
 			DefaultOnDeath();
 		}
+		if(bar != null) {
+			Destroy(bar);
+		}
 	}
 
 	public float PercentHealth() {
@@ -102,10 +108,6 @@ public class Health : MonoBehaviour {
 
 	public void DefaultOnDeath() {
 		Destroy(gameObject);
-		if(bar != null) {
-			Destroy(bar);
-		}
-
 	}
 
 }

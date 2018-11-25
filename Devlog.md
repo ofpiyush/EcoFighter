@@ -1,5 +1,14 @@
 # Devlog
 
+## 25th November
+
+Improving on details. I think I am getting a the hang of blender. Added some basic sounds for health and seed pickup. And added the Pause Menu.
+
+There is coherent logic on resource gathering. Still trying to balance the game, I might just have to make it easier to play because it is too difficult to win with the current settings.
+
+We've planned the back story and intro. Poonam will help write it! Woot!
+
+![Heart for health](images/gameplay-health.png)
 
 ## 24th November
 

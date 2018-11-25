@@ -22,6 +22,9 @@ public class Charger : MonoBehaviour {
 		DrawFill();
 	}
 	void FixedUpdate () {
+		if(PauseMenu.IsPaused) {
+			return;
+		}
 		Recharge();
 	}
  	void Recharge() {

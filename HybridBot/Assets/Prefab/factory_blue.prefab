@@ -25,6 +25,8 @@ GameObject:
   - component: {fileID: 114276671777414958}
   - component: {fileID: 208463226024916256}
   - component: {fileID: 82578052920748088}
+  - component: {fileID: 114298198926970388}
+  - component: {fileID: 114089909641294326}
   m_Layer: 0
   m_Name: factory_blue
   m_TagString: Enemy
@@ -69,7 +71,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1056172347323136}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.2124}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.005, y: 0.005, z: 0.005}
   m_Children:
   - {fileID: 4375686226652954}
@@ -269,6 +271,21 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &114089909641294326
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1056172347323136}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c729cba082a535641890799413b630a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Items:
+  - probability: 0.5
+    obj: {fileID: 1885213978201126, guid: 4bfab3749559d454fa5f6d487e132ea8, type: 2}
+    pickable: {fileID: 0}
 --- !u!114 &114276671777414958
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -289,6 +306,18 @@ MonoBehaviour:
   barScale: 0.8
   pollutionDamage: 0
   bar: {fileID: 0}
+--- !u!114 &114298198926970388
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1056172347323136}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c729cba082a535641890799413b630a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Items: []
 --- !u!208 &208463226024916256
 NavMeshObstacle:
   m_ObjectHideFlags: 1

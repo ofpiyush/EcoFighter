@@ -8,6 +8,7 @@ TagManager:
   - Enemy
   - Vegetation
   - PickableItem
+  - CrystalSource
   layers:
   - Default
   - TransparentFX

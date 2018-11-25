@@ -1,7 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+//using UnityEngine.UI;
+using TMPro;
+
+// [Serializable]
+// public class Seeds {
+
+// }
 
 public class GunController : MonoBehaviour {
 
@@ -11,9 +17,12 @@ public class GunController : MonoBehaviour {
     public float ThrowForce = 1f;
     int Seeds = 25;
     int MaxSeeds = 50;
-    public Text SeedCount;
+    public TextMeshProUGUI SeedCount;
     public Transform SpawnPoint;
     public GameObject Bomb;
+
+    //public List<GameObject> Seeds;
+
     float shotDuration = 0.25f;
     private LineRenderer laserLine;
     private Color originalColor;
@@ -33,6 +42,9 @@ public class GunController : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
+        if(PauseMenu.IsPaused) {
+			return;
+		}
         if(Input.GetButtonDown("Fire1"))  {
             ShootOne();
         }

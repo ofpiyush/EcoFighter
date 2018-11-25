@@ -21,6 +21,10 @@ public class SunPower : MonoBehaviour {
     }
 	// Update is called once per frame
 	void FixedUpdate () {
+		if(PauseMenu.IsPaused) {
+			return;
+		}
+
 		SetMultiplier();
         sunL.intensity = GameManager.instance.SunMultiplier * MaxIntensity;
 	}

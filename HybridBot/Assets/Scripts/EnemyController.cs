@@ -42,6 +42,9 @@ public class EnemyController : MonoBehaviour
 
     void FixedUpdate()
     {
+		if(PauseMenu.IsPaused) {
+			return;
+		}
         //RandomMove();
         FollowPlayer();
         SpawnFactory();

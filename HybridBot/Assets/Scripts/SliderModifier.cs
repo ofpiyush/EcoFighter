@@ -17,6 +17,10 @@ public class SliderModifier : MonoBehaviour {
 	}
 
 	void FixedUpdate () {
+		if(PauseMenu.IsPaused) {
+			return;
+		}
+
 	    fill.color = gradient.Evaluate(bar.value);
 	}
 }

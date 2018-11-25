@@ -212,7 +212,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Count: 0
-  Unit: 20
+  MaxCount: 3
+  Unit: 50
   Name: PlayerCharge
 --- !u!114 &114742102187171430
 MonoBehaviour:

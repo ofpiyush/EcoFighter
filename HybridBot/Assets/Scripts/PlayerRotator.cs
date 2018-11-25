@@ -21,12 +21,20 @@ public class PlayerRotator : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+		if(PauseMenu.IsPaused) {
+			return;
+		}
+
         turnAxis = Input.GetAxis("Mouse X");
         vertAxis = Input.GetAxis("Mouse Y");
     }
 
     void FixedUpdate()
     {
+		if(PauseMenu.IsPaused) {
+			return;
+		}
+
         yaw += turnSpeed * Time.deltaTime * turnAxis;
         pitch = Mathf.Clamp(pitch- turnSpeed * Time.deltaTime * vertAxis, -25f, 25f);
         transform.eulerAngles = new Vector3(pitch, yaw, 0f);

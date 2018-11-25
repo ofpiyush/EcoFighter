@@ -16,6 +16,9 @@ public class Plant : MonoBehaviour {
 	}
 
 	void FixedUpdate () {
+		if(PauseMenu.IsPaused) {
+			return;
+		}
 		if (Time.time - startTime <delay) {
 			return;
 		}
@@ -25,7 +28,7 @@ public class Plant : MonoBehaviour {
 		if(instantiated) {
 			return;
 		}
-		float yRand = Random.Range(0.001f, 0.015f);
+		float yRand = 0f;//Random.Range(0.001f, 0.015f);
 		Instantiate(obj,  transform.position - (Vector3.up *yRand), Quaternion.identity);
 		instantiated = true;
 		Destroy(gameObject);

@@ -9,6 +9,10 @@ public class SunController : MonoBehaviour
 
     void FixedUpdate()
     {
+		if(PauseMenu.IsPaused) {
+			return;
+		}
+
         transform.RotateAround(Vector3.zero, Vector3.forward, RotationSpeed * Time.deltaTime);
         transform.LookAt(Vector3.zero);
     }

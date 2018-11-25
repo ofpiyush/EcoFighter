@@ -39,6 +39,9 @@ public class GameManager : MonoBehaviour
 
     void FixedUpdate()
     {
+		if(PauseMenu.IsPaused) {
+			return;
+		}
         CalcPollutionLevel();
     }
 

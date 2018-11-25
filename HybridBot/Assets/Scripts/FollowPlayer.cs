@@ -8,6 +8,9 @@ public class FollowPlayer : MonoBehaviour
     public Transform player;
     void Update()
     {
+		if(PauseMenu.IsPaused) {
+			return;
+		}
         if (player == null)
         {
             Debug.Log("<color=red>Error:</color> Add player please");

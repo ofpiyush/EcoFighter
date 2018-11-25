@@ -11,6 +11,10 @@ public class PollutionWatch : MonoBehaviour {
 		
 	// Update is called once per frame
 	void FixedUpdate () {
+		if(PauseMenu.IsPaused) {
+			return;
+		}
+
 		slider.value = GameManager.instance.PollutionPercentage;
 	}
 }

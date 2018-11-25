@@ -15,6 +15,9 @@ public class Grow : MonoBehaviour {
 	}
 
 	void FixedUpdate () {
+		if(PauseMenu.IsPaused) {
+			return;
+		}
 		if(transform.localScale.x < maxSize) {
 			transform.localScale = transform.localScale* (1+ ((GrowRate * GameManager.instance.SunMultiplier * Time.deltaTime)/transform.localScale.x));
 		} else {

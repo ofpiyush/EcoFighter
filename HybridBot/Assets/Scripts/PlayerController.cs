@@ -16,7 +16,7 @@ public class PlayerController : MonoBehaviour
     Rigidbody rb;
     public Transform racer;
 
-    AudioSource audioData;
+    //AudioSource audioData;
 
     bool isAudioPlaying = false;
     Charger charger;
@@ -25,14 +25,18 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     {
         charger = GetComponent<Charger>();
-        audioData = GetComponent<AudioSource>();
+        //audioData = GetComponent<AudioSource>();
         health = GetComponent<Health>();
         health.SetDeathDelegate(this.Die);
         rb = GetComponent<Rigidbody>();
-        audioData.loop = true;
+        //audioData.loop = true;
     }
     void Update()
     {
+		if(PauseMenu.IsPaused) {
+			return;
+		}
+
         forwardThrust = Input.GetAxis("Vertical");
         sideThrust = Input.GetAxis("Horizontal");
 
@@ -51,6 +55,10 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
+		if(PauseMenu.IsPaused) {
+			return;
+		}
+
         currentSpeed = rb.velocity.magnitude;
         Move();
         Jump();
@@ -84,20 +92,20 @@ public class PlayerController : MonoBehaviour
 
     }
 
-    void PlayRollingSound()
-    {
-        if (!isAudioPlaying)
-        {
-            audioData.Play(0);
-            isAudioPlaying = true;
-        }
+    // void PlayRollingSound()
+    // {
+    //     if (!isAudioPlaying)
+    //     {
+    //         audioData.Play(0);
+    //         isAudioPlaying = true;
+    //     }
 
-    }
-    void StopAudio()
-    {
-        audioData.Stop();
-        isAudioPlaying = false;
-    }
+    // }
+    // void StopAudio()
+    // {
+    //     audioData.Stop();
+    //     isAudioPlaying = false;
+    // }
 
     void Die() {
         GameManager.instance.GameOver();

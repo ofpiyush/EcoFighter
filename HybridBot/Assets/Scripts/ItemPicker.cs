@@ -18,28 +18,44 @@ public class ItemPicker : MonoBehaviour {
 		if (pickable == null) {
 			return;
 		}
+		bool isPicked = false;
 		if (pickable.Name == "Seed") {
-			int remaining = gunController.AddSeeds(pickable.Count);
-			pickable.Count = remaining;
+			pickable.Pick(gameObject, SeedPicked);
 		} else if(pickable.Name == "GunCharge") {
-			float power = pickable.Unit * pickable.Count;
-
-			float remaining = gunController.charger.AddCharge(power);
-			// I hope C sharp doesn't have weird bugs else we won't get much power
-			pickable.Count = (int)(remaining/pickable.Unit);
+			pickable.Pick(gameObject, GunRecharge);
 		} else if(pickable.Name == "PlayerCharge") {
-			float power = pickable.Unit * pickable.Count;
-
-			float remaining = PlayerCharger.AddCharge(power);
-			// I hope C sharp doesn't have weird bugs else we won't get much power
-			pickable.Count = (int)(remaining/pickable.Unit);
+			pickable.Pick(gameObject, PlayerRecharge);
 		} else if(pickable.Name == "PlayerHealth") {
-			float health = pickable.Unit * pickable.Count;
-
-			float remaining = PlayerHealth.AddHealth(health);
-			// I hope C sharp doesn't have weird bugs else we won't get much power
-			pickable.Count = (int)(remaining/pickable.Unit);
+			pickable.Pick(gameObject, HealPlayer);
 		}
-		pickable.DonePicking();
 	}
+
+	void SeedPicked(int count, float unit) {
+		if(gunController == null) {
+			return;
+		}
+		gunController.AddSeeds(count);
+	}
+
+	void GunRecharge(int count, float unit) {
+		if(gunController == null) {
+			return;
+		}
+		gunController.charger.AddCharge(unit * count);
+	}
+	void PlayerRecharge(int count, float unit) {
+		if(PlayerCharger == null) {
+			return;
+		}
+		PlayerCharger.AddCharge(unit * count);
+	}
+
+	void HealPlayer(int count, float unit) {
+		if(PlayerHealth == null) {
+			return;
+		}
+		PlayerHealth.AddHealth(unit * count);
+	}
+
+
 }

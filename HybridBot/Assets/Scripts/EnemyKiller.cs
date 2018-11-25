@@ -10,12 +10,18 @@ public class EnemyKiller : MonoBehaviour {
 		ctl = GetComponentInParent<EnemyController>();
 	}
 	private void OnTriggerEnter(Collider other) {
+		if(PauseMenu.IsPaused) {
+			return;
+		}
 		if(other.tag =="Player") {
 			ctl.FoundPlayer();
 		}
 	}
 
 	private void OnTriggerStay(Collider other) {
+		if(PauseMenu.IsPaused) {
+			return;
+		}
 		if(other.tag == "Vegetation") {
 			Health health = other.GetComponent<Health>();
 			if(health) {
