@@ -21,7 +21,7 @@ public class ItemPicker : MonoBehaviour {
 		bool isPicked = false;
 		if (pickable.Name == "Seed") {
 			pickable.Pick(gameObject, SeedPicked);
-		} else if(pickable.Name == "GunCharge") {
+		} else if(pickable.Name == "GunCharge" || pickable.Name == "Crystal") {
 			pickable.Pick(gameObject, GunRecharge);
 		} else if(pickable.Name == "PlayerCharge") {
 			pickable.Pick(gameObject, PlayerRecharge);

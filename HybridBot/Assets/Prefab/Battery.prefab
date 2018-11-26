@@ -224,5 +224,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Count: 0
   MaxCount: 5
-  Unit: 10
+  Unit: 25
   Name: GunCharge
+  AutoDestroyAfter: 30

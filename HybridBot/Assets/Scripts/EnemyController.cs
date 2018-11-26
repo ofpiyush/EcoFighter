@@ -54,7 +54,7 @@ public class EnemyController : MonoBehaviour
 
 
     void FactoryHeal() {
-        health.TakeDamage(-factoryHealthGen*GameObject.FindGameObjectsWithTag("Enemy").Length*Time.fixedDeltaTime);
+        health.TakeDamage(-factoryHealthGen*GameObject.FindGameObjectsWithTag("Enemy").Length*Time.deltaTime);
     }
 
     void ResizeOnHealth() {

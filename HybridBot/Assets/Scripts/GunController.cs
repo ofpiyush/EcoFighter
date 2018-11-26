@@ -92,6 +92,8 @@ public class GunController : MonoBehaviour {
         //yield return shotDuration;
         float start = Time.time;
         float elapsed = 0;
+        bool isDoneCalling = false;
+
         while(elapsed < shotDuration) {
             RaycastHit hit;
             laserLine.SetPosition (0, SpawnPoint.transform.position);
@@ -101,6 +103,19 @@ public class GunController : MonoBehaviour {
                     laserLine.material.color = Color.red;
                     hit.collider.GetComponent<Health>().TakeDamage(damage * elapsed);
                     //Debug.DrawRay(transform.position, transform.position + (transform.forward * range), Color.red);
+                }
+                if (hit.collider.tag == "Vegetation") {
+                    laserLine.material.color = Color.red;
+                    hit.collider.GetComponent<Health>().TakeDamage(damage * elapsed/2f);
+                    //Debug.DrawRay(transform.position, transform.position + (transform.forward * range), Color.red);
+                }
+                if (hit.collider.tag == "CrystalSource") {
+                    if (!isDoneCalling) {
+                        laserLine.material.color = Color.red;
+                        hit.collider.GetComponent<Spawner>().TrySpawn(3);
+                        isDoneCalling = true;
+                        //Debug.DrawRay(transform.position, transform.position + (transform.forward * range), Color.red);
+                    }
                 }
             } else {
                 laserLine.material.color = originalColor;

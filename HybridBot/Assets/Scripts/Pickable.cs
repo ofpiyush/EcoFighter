@@ -10,6 +10,8 @@ public class Pickable: MonoBehaviour {
 	public float Unit = 1f;
 	public string Name;
 
+	public float AutoDestroyAfter = 30f;
+
 	OnPick onPick;
 
 	GameObject target;
@@ -18,6 +20,7 @@ public class Pickable: MonoBehaviour {
 	float maxDistance = 0.01f;
 
 	float speed = 0.5f;
+	float timer = 0f;
 	bool reached = false;
 
 	private void Awake() {
@@ -27,12 +30,17 @@ public class Pickable: MonoBehaviour {
 			audioSource.enabled = true;
 			audioSource.Stop();
 		}
-		
+		timer = 0f;
 	}
 
 	public void Pick(GameObject follow, OnPick pickAction) {
+		AutoDestroyAfter = 10000f;
 		onPick = pickAction;
 		target = follow;
+		Disable();
+	}
+
+	void Disable() {
 		gameObject.tag = "Untagged";
 		Collider collider = GetComponent<Collider>();
 		if (collider != null) {
@@ -44,9 +52,20 @@ public class Pickable: MonoBehaviour {
 		if(PauseMenu.IsPaused) {
 			return;
 		}
+
 		if (reached) {
 			return;
 		}
+
+		timer += Time.deltaTime;
+		if (timer > AutoDestroyAfter) {
+			Disable();
+			transform.localScale *= 0.0001f;
+			//Assume reached
+			reached = true;
+			Destroy(gameObject, 2f);
+		}
+
 		if(target == null) {
 			return;
 		}
