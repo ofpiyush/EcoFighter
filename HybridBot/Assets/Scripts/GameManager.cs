@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
 {
 
     public GameObject HealthBar;
+    public GameObject Enemy;
     public static GameManager instance;
 
 
@@ -26,6 +27,8 @@ public class GameManager : MonoBehaviour
 
     public float MaxPollutionLevel = 500f;
 
+    bool isEnemySpawned;
+
     void Awake()
     {
         if (GameManager.instance == null)
@@ -40,14 +43,30 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
+    void Start() {
+        pollutionLevel = MaxPollutionLevel/4f;
+    }
+
     void FixedUpdate()
     {
 		if(PauseMenu.IsPaused) {
 			return;
 		}
+
         CalcPollutionLevel();
+        if(!isEnemySpawned) {
+            CheckSpawnEnemy();
+        }
     }
 
+
+    void CheckSpawnEnemy() {
+        if(PollutionPercentage > 0.2f) {
+            return;
+        }
+        Enemy.SetActive(true);
+        isEnemySpawned = true;
+    }
 
     public void GameOver() {
         ResetPollution();
