@@ -43,6 +43,7 @@ GameObject:
   - component: {fileID: 135605875667439498}
   - component: {fileID: 114938765512831688}
   - component: {fileID: 114946905290291484}
+  - component: {fileID: 114951131497653990}
   m_Layer: 0
   m_Name: bush
   m_TagString: Vegetation
@@ -254,10 +255,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Items:
   - probability: 0.05
-    obj: {fileID: 1790555382214356, guid: 49dcf1f21971aa04e87dd80090c17c28, type: 2}
-    pickable: {fileID: 0}
-    YOffset: 0.05
-  - probability: 0.002
     obj: {fileID: 1286722889387576, guid: 3cb4caf05dd532543bde30ae83476f7b, type: 2}
     pickable: {fileID: 0}
     YOffset: 0.05
@@ -301,6 +298,23 @@ MonoBehaviour:
     obj: {fileID: 1368676443157770, guid: ccaadd8ede9f6bc41900a52373d71ccf, type: 2}
     pickable: {fileID: 0}
     YOffset: 0.005
+--- !u!114 &114951131497653990
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1262932619320986}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3be40a0d8884dff44a03ef76de741286, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Items:
+  - probability: 0.05
+    obj: {fileID: 1790555382214356, guid: 49dcf1f21971aa04e87dd80090c17c28, type: 2}
+    pickable: {fileID: 0}
+    YOffset: 0.05
+  spawnDelay: 10
 --- !u!135 &135605875667439498
 SphereCollider:
   m_ObjectHideFlags: 1

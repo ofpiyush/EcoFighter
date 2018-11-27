@@ -8,16 +8,32 @@ public class SpawnGoods : Spawner {
 
 	private float timer = 0;
 
+	private float notSpawnedSince = 0f;
+	private float nextAttemptDelay = 0f;
+
+
+	private void Start() {
+		nextAttemptDelay = spawnDelay;
+	}
 	private void FixedUpdate() {
 		if(PauseMenu.IsPaused) {
 			return;
 		}
 
 		timer += Time.fixedDeltaTime;
-		if(timer > spawnDelay && Random.Range(0f,1f) > 0.75f) {
-			if (TrySpawn(1)) {
-				timer = 0f;
+		if(timer > nextAttemptDelay) {
+			if (notSpawnedSince > 2*spawnDelay) {
+				ForceSpawn(2);
 			}
+
+			if(!TrySpawn(1)) {
+				notSpawnedSince += timer;
+				nextAttemptDelay /= 1.5f;
+			} else {
+				notSpawnedSince = 0f;
+				nextAttemptDelay = spawnDelay;
+			}
+			timer = 0f;
 		}
 	}
 }

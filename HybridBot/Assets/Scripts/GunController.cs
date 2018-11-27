@@ -15,7 +15,7 @@ public class GunController : MonoBehaviour {
     public float range = 1.5f;
 
     public float ThrowForce = 1f;
-    int Seeds = 25;
+    int Seeds = 5;
     int MaxSeeds = 50;
     public TextMeshProUGUI SeedCount;
     public Transform SpawnPoint;

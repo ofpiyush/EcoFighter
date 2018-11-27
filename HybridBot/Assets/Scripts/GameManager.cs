@@ -3,15 +3,23 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
 
+
+    public TextMeshProUGUI Remaining;
     public GameObject HealthBar;
     public GameObject Enemy;
     public static GameManager instance;
 
 
+    public float TotalGameTime = 300f;
+
+    public float EnemyComesAt = 60f;
+
+    private float RemainingGameTime = 300f;
     public float PollutionRate = 0f;
     public float SunMultiplier = 0f;
 
@@ -28,6 +36,7 @@ public class GameManager : MonoBehaviour
     public float MaxPollutionLevel = 500f;
 
     bool isEnemySpawned;
+    float timer;
 
     void Awake()
     {
@@ -45,6 +54,7 @@ public class GameManager : MonoBehaviour
 
     void Start() {
         pollutionLevel = MaxPollutionLevel/4f;
+        isEnemySpawned = false;
     }
 
     void FixedUpdate()
@@ -54,14 +64,19 @@ public class GameManager : MonoBehaviour
 		}
 
         CalcPollutionLevel();
+        RemainingGameTime -= Time.deltaTime;
+        Remaining.text = ((int) RemainingGameTime).ToString();
         if(!isEnemySpawned) {
             CheckSpawnEnemy();
+        }
+        if(RemainingGameTime <= 0f) {
+            GameOver();
         }
     }
 
 
     void CheckSpawnEnemy() {
-        if(PollutionPercentage > 0.2f) {
+        if(TotalGameTime - RemainingGameTime < EnemyComesAt) {
             return;
         }
         Enemy.SetActive(true);
@@ -70,6 +85,9 @@ public class GameManager : MonoBehaviour
 
     public void GameOver() {
         ResetPollution();
+        isEnemySpawned = false;
+        RemainingGameTime = TotalGameTime;
+        pollutionLevel = MaxPollutionLevel/4f;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 

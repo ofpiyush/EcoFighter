@@ -1,5 +1,11 @@
 # Devlog
 
+## 27th November
+
+After simplifying, the core exponential vs linear issue becomes very apparent very fast. The quick fix (considering the deadline), is to give the player a race against the clock and adjust all rates such that there is just enough time to complete the tasks in ideal-ish play. The player and we are both racing against the clock at this point.
+
+We also have a few bugs to go through. I'll try to fix this tomorrow, too tired to do much else today.
+
 ## 26th November
 The game feels too complicated at the moment. Our target audience is scrolling through the page looking for a game to play test. They will not invest loads of time trying to understand all the mechanics in the high-octane game.
 
@@ -37,7 +43,7 @@ Enemny gets pissed off and starts charging at you...
 ### Possible simplifications
 - [x] Keep single charge for both player and gun.
 - [x] Remove crystals, keep charcoal only.
-- [ ] Introduce just pollution management first.
+- [x] Introduce just pollution management first.
 - [ ] Maybe make a maze level in the beginning just to get the hang of controls?
 
 ## 25th November
