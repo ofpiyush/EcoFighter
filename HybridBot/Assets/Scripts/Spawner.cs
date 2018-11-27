@@ -17,6 +17,10 @@ public class Spawner : MonoBehaviour {
 
 	public List<Spawnable> Items;
 	public bool TrySpawn(int count) {
+		if (Items.Count == 0) {
+			//Report spawned to avoid being called infinitely
+			return true;
+		}
 		int counter = Random.Range(0,Items.Count);
 		if(Random.Range(0f,1f) < Items[counter].probability) {
 

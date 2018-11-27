@@ -30,7 +30,7 @@ public class GunController : MonoBehaviour {
     private Camera fpsCam;
     
     private void Awake() {
-        charger = GetComponent<Charger>();
+        //charger = GetComponent<Charger>();
         laserLine = GetComponent<LineRenderer>();
         if (laserLine != null) {
             laserLine.enabled = false;
@@ -109,14 +109,14 @@ public class GunController : MonoBehaviour {
                     hit.collider.GetComponent<Health>().TakeDamage(damage * elapsed/2f);
                     //Debug.DrawRay(transform.position, transform.position + (transform.forward * range), Color.red);
                 }
-                if (hit.collider.tag == "CrystalSource") {
-                    if (!isDoneCalling) {
-                        laserLine.material.color = Color.red;
-                        hit.collider.GetComponent<Spawner>().TrySpawn(3);
-                        isDoneCalling = true;
-                        //Debug.DrawRay(transform.position, transform.position + (transform.forward * range), Color.red);
-                    }
-                }
+                // if (hit.collider.tag == "CrystalSource") {
+                //     if (!isDoneCalling) {
+                //         laserLine.material.color = Color.red;
+                //         hit.collider.GetComponent<Spawner>().TrySpawn(3);
+                //         isDoneCalling = true;
+                //         //Debug.DrawRay(transform.position, transform.position + (transform.forward * range), Color.red);
+                //     }
+                // }
             } else {
                 laserLine.material.color = originalColor;
                 laserLine.SetPosition (1, SpawnPoint.transform.position + (fpsCam.transform.forward * range));

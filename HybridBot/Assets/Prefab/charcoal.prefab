@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 65322999667370292}
   - component: {fileID: 114369482394221326}
   m_Layer: 0
-  m_Name: coal
+  m_Name: charcoal
   m_TagString: PickableItem
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

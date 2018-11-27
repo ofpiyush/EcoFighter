@@ -92,7 +92,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: 30ba2258216327e419428d103d9bce3b, type: 2}
+  - {fileID: 2100000, guid: 7cb004f06741495419acbd3e7b893117, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -298,6 +298,7 @@ MonoBehaviour:
   MaxCount: 2
   Unit: 1
   Name: Seed
+  AutoDestroyAfter: 120
 --- !u!114 &114261661938138324
 MonoBehaviour:
   m_ObjectHideFlags: 1

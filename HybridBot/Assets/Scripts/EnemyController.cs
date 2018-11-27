@@ -22,7 +22,7 @@ public class EnemyController : MonoBehaviour
     float maxZ = 1.8f;
     float minZ = -1.8f;
     float timer;
-    float lastInstantiatedTime;
+    float lastInstantiatedTimer;
     int sec;
 
     bool isNearPlayer = false;
@@ -32,6 +32,7 @@ public class EnemyController : MonoBehaviour
     private void Awake() {
         agent = GetComponent<NavMeshAgent>();
         health = GetComponent<Health>();
+        lastInstantiatedTimer = 0f;
     }
     void Start()
     {
@@ -50,6 +51,7 @@ public class EnemyController : MonoBehaviour
         SpawnFactory();
         FactoryHeal();
         ResizeOnHealth();
+        lastInstantiatedTimer += Time.deltaTime;
     }
 
 
@@ -80,11 +82,11 @@ public class EnemyController : MonoBehaviour
         if (isNearPlayer) {
             return;
         }
-        if((Time.time- lastInstantiatedTime) > waitBeforeSpawn && Random.Range(0f, 1f) > 0.75f) {
+        if(lastInstantiatedTimer > waitBeforeSpawn && Random.Range(0f, 1f) > 0.75f) {
             int i = Random.Range(0, Factories.Count);
             GameObject factory = Instantiate(Factories[i]);
-            factory.transform.position = new Vector3(transform.position.x, 0.005f, transform.position.z);
-            lastInstantiatedTime = Time.time;
+            factory.transform.position = new Vector3(transform.position.x, 0.00f, transform.position.z);
+            lastInstantiatedTimer = 0;
         }
     }
 

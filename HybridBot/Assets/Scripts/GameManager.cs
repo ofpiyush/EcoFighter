@@ -9,6 +9,9 @@ public class GameManager : MonoBehaviour
 
     public GameObject HealthBar;
     public static GameManager instance;
+
+
+    public float PollutionRate = 0f;
     public float SunMultiplier = 0f;
 
     public float bushPollutionKill = 0.2f;
@@ -52,13 +55,13 @@ public class GameManager : MonoBehaviour
     }
 
     void CalcPollutionLevel() {
-        AddPollution(
-        (
-            pollutionBackgroundRate + 
+
+        float PollutionPerSec = pollutionBackgroundRate + 
             (GameObject.FindGameObjectsWithTag("Enemy").Length*factoryPollutionMake) - 
-            (GameObject.FindGameObjectsWithTag("Vegetation").Length*bushPollutionKill)
-            ) * Time.fixedDeltaTime
-        );
+            (GameObject.FindGameObjectsWithTag("Vegetation").Length*bushPollutionKill);
+        PollutionRate = PollutionPerSec/MaxPollutionLevel;
+        Debug.Log(PollutionRate);
+        AddPollution(PollutionPerSec * Time.fixedDeltaTime);
     }
 
     void ResetPollution() {

@@ -1,5 +1,45 @@
 # Devlog
 
+## 26th November
+The game feels too complicated at the moment. Our target audience is scrolling through the page looking for a game to play test. They will not invest loads of time trying to understand all the mechanics in the high-octane game.
+
+I have to make different scenes to try out various individual mechanics and decide what to keep in the final version. This feels really hectic.
+
+### Current game
+
+#### Backstory
+Your planet thrives on making batteries out of crystals. You are a hybrid (organic brain + mechnical body) icosphere running on hybrid fuel (solar + charcoal).
+You mine crystals with your laser mining gun.
+
+Mining and using charcoal causes pollution, so you plant a few bushes to keep the environment clean. Bushes give you seed for more bushes and mechanical heart to boost your health.
+
+One voxel corporate overlord decides to mine crystals and produce as many batteries as fast as they can. Factories and the enemy cause pollution and put the environment in jeopardy.
+
+The bushes you plant can't account for the amount of pollution, you point the laser mining gun at a factory and shoot! This blows up the factory and gives you ammo.
+
+Enemny gets pissed off and starts charging at you...
+
+### Current mechanics
+
+- Resource management
+    * Manage pollution by planting seeds to make bushes or by killing factories.
+    * Solar charges gun, gun can be used to throw seeds or shoot lasers. Can be recharged with crystals or batteries.
+    * Player movement is supported by solar and burning charcoal(dropped by dying bushes).
+- Third person shooter
+    * Shoot lasers to kill enemy
+    * Throw seeds to plant bushes.
+    * Move and control like a FPS/TPS.
+- Item Drop
+    * Rocks drop crystals on shooting them.
+    * Factories drop batteries on death
+    * Bushes drop seeds and heart
+
+### Possible simplifications
+- [x] Keep single charge for both player and gun.
+- [x] Remove crystals, keep charcoal only.
+- [ ] Introduce just pollution management first.
+- [ ] Maybe make a maze level in the beginning just to get the hang of controls?
+
 ## 25th November
 
 Improving on details. I think I am getting a the hang of blender. Added some basic sounds for health and seed pickup. And added the Pause Menu.
