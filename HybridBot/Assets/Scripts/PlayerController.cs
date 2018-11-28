@@ -33,7 +33,7 @@ public class PlayerController : MonoBehaviour
     }
     void Update()
     {
-		if(PauseMenu.IsPaused) {
+		if(Gameplay.IsPaused) {
 			return;
 		}
 

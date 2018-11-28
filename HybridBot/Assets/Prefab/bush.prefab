@@ -237,7 +237,7 @@ MonoBehaviour:
   isDead: 0
   MaxHealth: 30
   showHealthBar: 1
-  fixedBar: 1
+  fixedBar: 0
   yOffset: 0.025
   barScale: 0.25
   pollutionDamage: 0
@@ -254,7 +254,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Items:
-  - probability: 0.05
+  - probability: 0.01
     obj: {fileID: 1286722889387576, guid: 3cb4caf05dd532543bde30ae83476f7b, type: 2}
     pickable: {fileID: 0}
     YOffset: 0.05
