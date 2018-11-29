@@ -5,12 +5,17 @@ ModelImporter:
   fileIDToRecycleName:
     100000: factory_blue
     100002: //RootNode
+    100004: factory_red
     400000: factory_blue
     400002: //RootNode
+    400004: factory_red
     2100000: palette
     2300000: factory_blue
+    2300002: factory_red
     3300000: factory_blue
+    3300002: factory_red
     4300000: factory_blue
+    4300002: factory_red
   externalObjects: {}
   materials:
     importMaterials: 1

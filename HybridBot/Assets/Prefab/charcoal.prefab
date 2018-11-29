@@ -182,7 +182,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Count: 1
-  MaxCount: 5
-  Unit: 100
+  MaxCount: 2
+  Unit: 20
   Name: PlayerCharge
   AutoDestroyAfter: 30

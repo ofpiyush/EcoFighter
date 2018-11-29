@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 23696088798850540}
   m_Layer: 11
   m_Name: Minimap
-  m_TagString: Untagged
+  m_TagString: PickableItem
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -56,7 +56,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1286722889387576}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.208, y: 0, z: 0.264}
+  m_LocalPosition: {x: 1.009, y: -0.078, z: -0.06}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4473255789183988}
@@ -126,7 +126,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: 1042b87790fbcbc4284f68fdc596da37, type: 2}
+  - {fileID: 2100000, guid: 78639eb448ee1454686d2aa7ba02c95d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
