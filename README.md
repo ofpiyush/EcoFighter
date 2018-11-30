@@ -9,7 +9,7 @@ The game itself is a hybrid between a shooter and a management game. You've to k
 
 ### How to play
 
-Corporate greed has run the world to the brink of environmental collapse! You have to protect the rest of us from certain doom by planting bushes,
+Corporate greed has run the world to the brink of environmental collapse! You have to protect the rest of us from certain doom by keeping pollution low and killing the enemy!
 
 
 ### Controls

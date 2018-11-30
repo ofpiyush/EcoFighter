@@ -8,6 +8,8 @@ using TMPro;
 public class LevelManager : MonoBehaviour
 {
     public TextMeshProUGUI Remaining;
+    public TextMeshProUGUI KilledEnemy;
+    public TextMeshProUGUI PollutionZero;
     public GameObject Enemy;
 
     public GameObject Player;
@@ -22,12 +24,16 @@ public class LevelManager : MonoBehaviour
     public float MaxPollutionLevel = 500f;
     bool isEnemySpawned;
     float timer;
+    bool pollutionFixed;
 
 
     void Start() {
         RemainingGameTime =  300f;
         pollutionLevel = MaxPollutionLevel/4f;
         isEnemySpawned = false;
+        pollutionFixed = false;
+        PollutionZero.text="[ ]";
+        KilledEnemy.text="[ ]";
     }
 
     void FixedUpdate()
@@ -48,7 +54,25 @@ public class LevelManager : MonoBehaviour
             GameOver();
         }
 
-        if(pollutionLevel <= 0f && isEnemySpawned && Enemy == null) {
+        CheckWin();
+    }
+
+    void CheckWin() {
+        if(GameManager.instance.PollutionPercentage <= 0f) {
+            PollutionZero.text="[X]";
+            pollutionFixed = true;
+        } 
+        if (GameManager.instance.PollutionPercentage > 0f && pollutionFixed){
+            PollutionZero.text="[ ]";
+            pollutionFixed = false;
+        }
+        bool enemyKilled = false;
+        if (isEnemySpawned && Enemy == null) {
+            enemyKilled = true;
+            KilledEnemy.text ="[X]";
+        }
+
+        if(pollutionFixed && enemyKilled) {
             //Todo: load some end credits
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex-1);
         }
@@ -69,8 +93,11 @@ public class LevelManager : MonoBehaviour
     public void GameOver() {
         ResetPollution();
         isEnemySpawned = false;
+        pollutionFixed = false;
         RemainingGameTime = TotalGameTime;
         pollutionLevel = MaxPollutionLevel/4f;
+        PollutionZero.text="[ ]";
+        KilledEnemy.text="[ ]";
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
