@@ -10,9 +10,11 @@ public class LevelManager : MonoBehaviour
     public TextMeshProUGUI Remaining;
     public GameObject Enemy;
 
+    public GameObject Player;
+
     public float TotalGameTime = 300f;
     public float EnemyComesAt = 60f;
-    private float RemainingGameTime = 300f;
+    public static float RemainingGameTime = 300f;
     public float bushPollutionKill = 0.2f;
     public float factoryPollutionMake = 1f;
     float pollutionLevel = 0f;
@@ -36,14 +38,24 @@ public class LevelManager : MonoBehaviour
         CalcPollutionLevel();
         RemainingGameTime -= Time.deltaTime;
         Remaining.text = ((int) RemainingGameTime).ToString();
+
         if(!isEnemySpawned) {
             CheckSpawnEnemy();
         }
-        if(RemainingGameTime <= 0f) {
+
+        if(RemainingGameTime <= 0f || pollutionLevel >= MaxPollutionLevel) {
             GameOver();
+        }
+
+        if(pollutionLevel <= 0f && isEnemySpawned && Enemy == null) {
+            //Todo: load some end credits
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex-1);
         }
     }
 
+    void SpawnGoods() {
+
+    } 
 
     void CheckSpawnEnemy() {
         if(TotalGameTime - RemainingGameTime < EnemyComesAt) {

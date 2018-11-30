@@ -20,6 +20,7 @@ public class GunController : MonoBehaviour {
     public TextMeshProUGUI SeedCount;
     public Transform SpawnPoint;
     public GameObject Bomb;
+    public GameObject Bullet;
 
     //public List<GameObject> Seeds;
 
@@ -28,6 +29,8 @@ public class GunController : MonoBehaviour {
     private Color originalColor;
     public Charger charger;
     private Camera fpsCam;
+
+    private bool isShooting;
     
     private void Awake() {
         //charger = GetComponent<Charger>();
@@ -46,12 +49,26 @@ public class GunController : MonoBehaviour {
 			return;
 		}
         if(Input.GetButtonDown("Fire1"))  {
-            ShootOne();
+            //ShootOne();
+            isShooting = true;
+            
         }
         if(Input.GetButtonDown("Fire2"))  {
             ThrowOne();
         }
+        if(Input.GetButtonUp("Fire1")) {
+            StopShooting();
+        }
 	}
+
+    private void LateUpdate() {
+        if(isShooting) {
+            //ShootBullet();
+            //isShooting = false;
+            ShootViaUpdate();
+        }
+
+    }
 
     void ThrowOne() {
         if(Seeds == 0 || !charger.Discharge(2f)) {
@@ -75,6 +92,47 @@ public class GunController : MonoBehaviour {
         return returnVal;
     }
 
+    void ShootBullet() {
+        GameObject bull = Instantiate(Bullet, SpawnPoint.position, Quaternion.identity);
+        BulletController t = bull.GetComponent<BulletController>();
+        LineRenderer l = bull.GetComponent<LineRenderer>();
+        l.SetPosition(1,fpsCam.transform.forward*0.1f);
+        t.target = SpawnPoint.transform.position + (fpsCam.transform.forward * range);
+    }
+
+    void StopShooting() {
+        isShooting = false;
+        laserLine.enabled = false;
+        laserLine.material.color = originalColor;
+    }
+    void ShootViaUpdate() {
+        RaycastHit hit;
+         if (!charger.Discharge(damage*Time.deltaTime/10f)) {
+            laserLine.enabled = false;
+            return;
+        }
+        laserLine.SetPosition (0, SpawnPoint.transform.position);
+        if(Physics.Raycast(fpsCam.transform.position,fpsCam.transform.forward, out hit, range)) {
+            laserLine.SetPosition (1, hit.point);
+            laserLine.enabled = true;
+            if (hit.collider.tag == "Enemy") {
+                laserLine.material.color = Color.red;
+                hit.collider.GetComponent<Health>().TakeDamage(damage*2f * Time.deltaTime);
+                //Debug.DrawRay(transform.position, transform.position + (transform.forward * range), Color.red);
+            }
+            if (hit.collider.tag == "Vegetation") {
+                laserLine.material.color = Color.red;
+                hit.collider.GetComponent<Health>().TakeDamage(damage * Time.deltaTime);
+                //Debug.DrawRay(transform.position, transform.position + (transform.forward * range), Color.red);
+            }
+
+        } else {
+            laserLine.material.color = originalColor;
+            laserLine.SetPosition (1, SpawnPoint.transform.position + (fpsCam.transform.forward * range));
+            //Debug.DrawRay(transform.position, transform.position + (transform.forward * range), Color.white);
+        }
+        laserLine.enabled = true;
+    }
     void ShootOne() {
         // Lose 1/10th of damage value
         if (!charger.Discharge(damage/10f)) {

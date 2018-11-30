@@ -27,7 +27,10 @@ public class PlayerController : MonoBehaviour
         charger = GetComponent<Charger>();
         //audioData = GetComponent<AudioSource>();
         health = GetComponent<Health>();
-        health.SetDeathDelegate(this.Die);
+        if(health != null) {
+            health.SetDeathDelegate(this.Die);
+        }
+
         rb = GetComponent<Rigidbody>();
         //audioData.loop = true;
     }

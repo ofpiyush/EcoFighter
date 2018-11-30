@@ -1,5 +1,11 @@
 # Devlog
 
+## 29th November
+
+We now have enemy fire and factory exhaust! Made a simple main menu from the level as a sort of sandbox for players to get used to the mechanics of the game. Designed a logo for the game and made a bunch of bugfixes today. It feels like we might have a working game after all!
+
+![I didn't expect this to come out so well](images/game_objects_screenshot.png)
+
 ## 27th November
 
 After simplifying, the core exponential vs linear issue becomes very apparent very fast. The quick fix (considering the deadline), is to give the player a race against the clock and adjust all rates such that there is just enough time to complete the tasks in ideal-ish play. The player and we are both racing against the clock at this point.

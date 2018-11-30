@@ -1,19 +1,22 @@
-# HybridBot
+![The logo!](images/big_canvas_final.png)
 
-Theme for GithubGameOff this year is *Hybrid*
+Theme for Github Game Off this year is **Hybrid**
 
-## Core theme
+### Theme interpretation
+Player is a hybrid (organic brain + mechnical body) icosphere running on hybrid fuel (solar + charcoal) in a hybrid universe (low poly and voxel characters).
 
-### Low poly vs Voxel characters.
+The game itself is a hybrid between a shooter and a management game. You've to keep pollution low and kill the enemy before time runs out!
 
-Voxels are polluting the environment and a lone low poly character is fighting climate change.
+### How to play
 
-## Lore
-The arena is a happy low poly land. Pendu (player, icosphere) runs on solar power, roams around the arena planting bushes and keeping natural pollution levels in check.
+Corporate greed has run the world to the brink of environmental collapse! You have to protect the rest of us from certain doom by planting bushes,
 
-Voxella (enemy, Voxel sphere) destroys bushes and keeps adding factories to maximise profit. Factories pollute the environment and drive the arena to extinction.
 
-Pendu has to keep balance and survive the poisonous pollutants emitted from factories and Voxella.
+### Controls
+
+Typical third person controller with mouse and arrow/WASD keys
+
+Left click to shoot laser, Right click to throw seeds.
 
 ## Todo
 
@@ -39,18 +42,18 @@ Pendu has to keep balance and survive the poisonous pollutants emitted from fact
 
 - [ ] Plan Game music
 
-- [ ] Plan intro and onboarding
+- [x] Plan intro and onboarding
 
-- [ ] Add Start Menu, Pause menu, Game over scene
+- [x] Add Start Menu, Pause menu, Game over scene
 
-- [ ] Plan more details and animations based on time left.
+- [x] Plan more details and animations based on time left.
 
 - [ ] Flesh out the itch.io page
 
 - [ ] Submit!
 
 
-## Possible future directions (post GameOff)
+## Possible future directions (post Game Off)
 
 - Add more management sim elements, work out the builder/management + third person shooter hybrid idea.
 - Add a king of the hill mode where a factory or a bush would determine the winner by the end of some time.

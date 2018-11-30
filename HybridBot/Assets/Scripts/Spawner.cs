@@ -41,4 +41,5 @@ public class Spawner : MonoBehaviour {
 		}
 		Items[counter].pickable.Count = Mathf.Clamp(Items[counter].pickable.Count+count,0,Items[counter].pickable.MaxCount);
 	}
+
 }

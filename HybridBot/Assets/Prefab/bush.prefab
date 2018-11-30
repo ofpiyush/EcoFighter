@@ -56,10 +56,10 @@ GameObject:
   - component: {fileID: 4425718989376482}
   - component: {fileID: 114592122597283870}
   - component: {fileID: 114012236996849250}
-  - component: {fileID: 114231773147877878}
   - component: {fileID: 135605875667439498}
   - component: {fileID: 114938765512831688}
   - component: {fileID: 114946905290291484}
+  - component: {fileID: 114231773147877878}
   - component: {fileID: 114951131497653990}
   m_Layer: 0
   m_Name: bush

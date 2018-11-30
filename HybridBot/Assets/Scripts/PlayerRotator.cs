@@ -15,7 +15,10 @@ public class PlayerRotator : MonoBehaviour
 
     void Start(){
         Cursor.lockState = UnityEngine.CursorLockMode.Confined;
-        Cursor.visible = false;
+        if(!GameManager.instance.isIntroScene) {
+            Cursor.visible = false;
+        }
+
     }
 
     // Update is called once per frame

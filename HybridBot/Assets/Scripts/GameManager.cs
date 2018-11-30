@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     public GameObject HealthBar;
     public float SunMultiplier = 0f;
     public float PollutionPercentage = 0f;
+    public bool isIntroScene = true;
 
     void Awake()
     {
