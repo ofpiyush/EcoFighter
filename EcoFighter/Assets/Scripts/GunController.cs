@@ -12,7 +12,8 @@ using TMPro;
 public class GunController : MonoBehaviour {
 
     public float damage = 10f;
-    public float range = 1.5f;
+    public float range = 15f;
+    public ParticleSystem muzzleFlash;
 
     public float ThrowForce = 1f;
     int Seeds = 5;
@@ -26,6 +27,7 @@ public class GunController : MonoBehaviour {
 
     float shotDuration = 0.25f;
     private LineRenderer laserLine;
+    private AudioSource fire;
     private Color originalColor;
     public Charger charger;
     private Camera fpsCam;
@@ -35,6 +37,7 @@ public class GunController : MonoBehaviour {
     private void Awake() {
         //charger = GetComponent<Charger>();
         laserLine = GetComponent<LineRenderer>();
+        fire = GetComponent<AudioSource>();
         if (laserLine != null) {
             laserLine.enabled = false;
         }
@@ -49,26 +52,57 @@ public class GunController : MonoBehaviour {
 			return;
 		}
         if(Input.GetButtonDown("Fire1"))  {
-            //ShootOne();
-            isShooting = true;
+            if(muzzleFlash == null) {
+                ShootOne();
+            } else {
+                Shoot();
+            }
+
             
+        } else {
+            if(isShooting) {
+                StopShooting();
+            }
+            isShooting = false;
         }
         if(Input.GetButtonDown("Fire2"))  {
             ThrowOne();
         }
-        if(Input.GetButtonUp("Fire1")) {
-            StopShooting();
-        }
 	}
 
-    private void LateUpdate() {
-        if(isShooting) {
-            //ShootBullet();
-            //isShooting = false;
-            ShootViaUpdate();
+    void Shoot() {
+        RaycastHit hit;
+         if (!charger.Discharge(damage/10f)) {
+            return;
         }
+        
+        muzzleFlash.Play();
+        fire.Play(0);
+        
 
+        if(Physics.Raycast(fpsCam.transform.position,fpsCam.transform.forward, out hit, range)) {
+
+            if (hit.collider.tag == "Enemy") {
+
+                hit.collider.GetComponent<Health>().TakeDamage(damage);
+                //Debug.DrawRay(transform.position, transform.position + (transform.forward * range), Color.red);
+            }
+            if (hit.collider.tag == "Vegetation") {
+
+                hit.collider.GetComponent<Health>().TakeDamage(damage);
+                //Debug.DrawRay(transform.position, transform.position + (transform.forward * range), Color.red);
+            }
+
+        }
     }
+    // private void LateUpdate() {
+    //     if(isShooting) {
+    //         //ShootBullet();
+    //         //isShooting = false;
+    //         ShootViaUpdate();
+    //     }
+
+    // }
 
     void ThrowOne() {
         if(Seeds == 0 || !charger.Discharge(2f)) {

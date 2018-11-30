@@ -107,6 +107,7 @@ GameObject:
   - component: {fileID: 208893489435316314}
   - component: {fileID: 82015543877189176}
   - component: {fileID: 65408188515168610}
+  - component: {fileID: 114519184774522096}
   m_Layer: 0
   m_Name: factory
   m_TagString: Enemy
@@ -181,7 +182,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1293943965222814}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.291, y: -0.121, z: -1.988}
+  m_LocalPosition: {x: 0.291, y: -0.0001, z: -1.6451}
   m_LocalScale: {x: 0.005, y: 0.005, z: 0.005}
   m_Children:
   - {fileID: 4126884830305840}
@@ -550,6 +551,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 327acc4cdc6a76943b184ad03e3292ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114519184774522096
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1293943965222814}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1d31a88dbd27f746bdd8ea7c1dee0d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  effect: {fileID: 1367396850378190, guid: 4ca429161df291249af6f7242ee77593, type: 2}
 --- !u!198 &198106785997361658
 ParticleSystem:
   m_ObjectHideFlags: 1

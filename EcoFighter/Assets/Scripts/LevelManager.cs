@@ -25,6 +25,7 @@ public class LevelManager : MonoBehaviour
 
 
     void Start() {
+        RemainingGameTime =  300f;
         pollutionLevel = MaxPollutionLevel/4f;
         isEnemySpawned = false;
     }

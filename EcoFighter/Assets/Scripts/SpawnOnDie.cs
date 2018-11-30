@@ -18,8 +18,8 @@ public class SpawnOnDie : Spawner {
 
 	void Die() {
 		// Increase probability every 10 seconds of life
-		if( (LevelManager.RemainingGameTime - start) > 5f) {
-			ForceSpawn(Random.Range(1,(int)((LevelManager.RemainingGameTime - start)/10f)));
+		if( (start-LevelManager.RemainingGameTime) > 5f) {
+			ForceSpawn(Random.Range(1,(int)((start - LevelManager.RemainingGameTime)/10f)));
 		}
 		// Todo: allow registering animation or something else
 		Destroy(gameObject);

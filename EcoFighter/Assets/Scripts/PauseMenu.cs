@@ -25,7 +25,11 @@ public class Gameplay: MonoBehaviour {
 public class PauseMenu : Gameplay {
 
 	public GameObject PauseUI;
+	private AudioSource happy;
 
+	private void Awake() {
+		happy = GetComponent<AudioSource>();
+	}
 	
 	// Update is called once per frame
 	void Update () {
@@ -43,10 +47,12 @@ public class PauseMenu : Gameplay {
 	void Pause() {
 		DoPause();
 		PauseUI.SetActive(true);
+		happy.Play(0);
 	}
 	public void Resume() {
 		PauseUI.SetActive(false);
 		DoResume();
+		happy.Stop();
 	}
 
 
