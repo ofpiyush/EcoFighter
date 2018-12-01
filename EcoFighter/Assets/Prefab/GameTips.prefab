@@ -275,7 +275,7 @@ MonoBehaviour:
   - You can't move or shoot without charge
   - Bushes can be killed for charcoal to gain charge
   - Voxella comes 60 seconds into the game
-  - Voxella regains health from factories, destory them to slow her regenation
+  - Voxella regains health from factories, destory them to slow her regeneration
   - Seeds and hearts vanish if they are not picked for a while
 --- !u!114 &114154151480166952
 MonoBehaviour:

@@ -30364,7 +30364,7 @@ Prefab:
     - target: {fileID: 114218861627781470, guid: a1264d7c0f1da4b48a9e637064f2ca9a,
         type: 2}
       propertyPath: chargeRate
-      value: 10
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 114218861627781470, guid: a1264d7c0f1da4b48a9e637064f2ca9a,
         type: 2}
