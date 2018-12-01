@@ -135,7 +135,7 @@ public class LevelManager : Gameplay
         }
 
         CheckWin();
-        if ((lastSpawnInvoked - RemainingGameTime) > 5f) {
+        if ((lastSpawnInvoked - RemainingGameTime) > 10f) {
             lastSpawnInvoked = RemainingGameTime;
             Invoke("CheckSpawnItems",Random.Range(0,3));
         }
@@ -153,8 +153,8 @@ public class LevelManager : Gameplay
             HeartCount += toSpawn;
             lastHeartSpawned = RemainingGameTime;
         }
-        if(SeedCount < 15 && (lastHeartSpawned - RemainingGameTime) > 10) {
-            int toSpawn = Mathf.Clamp(Random.Range(3, 15 - SeedCount),0,15 - SeedCount);
+        if(SeedCount < 10 && (lastHeartSpawned - RemainingGameTime) > 10) {
+            int toSpawn = Mathf.Clamp(Random.Range(3, 10 - SeedCount),0,10 - SeedCount);
             SpawnItem(Seed, toSpawn);
             SeedCount += toSpawn;
             lasSeedSpawned = RemainingGameTime;
@@ -168,7 +168,7 @@ public class LevelManager : Gameplay
             GameObject go = Instantiate(item.obj, AllBushes[Random.Range(0,AllBushes.Length)].transform.position + Vector3.up*item.YOffset,Quaternion.identity);
             Pickable pickable = go.GetComponent<Pickable>();
             pickable.SetNotifier(UsedUp);
-            pickable.Count = 2;
+            pickable.Count = 1;
         }
     }
 
@@ -241,7 +241,7 @@ public class LevelManager : Gameplay
         string reason = "";
         if(RemainingGameTime <= 0f) {
             reason = "Ran out of time!";
-        } else if(Enemy.GetComponent<EnemyController>().isNearPlayer) {
+        } else if(Enemy != null && Enemy.GetComponent<EnemyController>().isNearPlayer) {
             reason = "Fried by Voxella.";
         } else {
             reason = "Suffocated by pollution.";

@@ -1,11 +1,21 @@
-![The logo!](images/big_canvas_final.png)
+[![The logo!](images/banner.png)](https://ofpiyush.itch.io/ecofighter)
 
 Theme for Github Game Off this year is **Hybrid**
+
+### Download
+You can download the latest version of the game from it's [itch.io page](https://ofpiyush.itch.io/ecofighter)
+
+
+If you liked the game, vote for us!
+[https://itch.io/jam/game-off-2018/rate/336431](https://itch.io/jam/game-off-2018/rate/336431)
 
 ### Theme interpretation
 Player is a hybrid (organic brain + mechnical body) icosphere running on hybrid fuel (solar + charcoal) in a hybrid universe (low poly and voxel characters).
 
 The game itself is a hybrid between a shooter and a management game. You've to keep pollution low and kill the enemy before time runs out!
+
+### Gameplay Video
+[![EcoFighter Gameplay](https://img.youtube.com/vi/0tElB4MkPQo/0.jpg)](https://www.youtube.com/watch?v=0tElB4MkPQo)
 
 ### How to play
 
@@ -18,7 +28,15 @@ Typical third person controller with mouse and arrow/WASD keys
 
 Left click to shoot laser, Right click to throw seeds.
 
-## Todo
+
+### License
+All code is under Unlicense, all art, assets and music is under Creative Commons Attribution v4.0 International.
+
+Simply put, we've made everything for this game ourselves, you don't need to worry about people knocking at your door asking for their cut. :)
+
+<details><summary><code><b>Old todos</b></code> <em>(click to expand)</em></summary><p>
+
+#### Todo
 
 - [x] Decide game theme
 
@@ -40,7 +58,7 @@ Left click to shoot laser, Right click to throw seeds.
 
 - [X] Plan HUD
 
-- [ ] Plan Game music
+- [x] Plan Game music
 
 - [x] Plan intro and onboarding
 
@@ -48,9 +66,11 @@ Left click to shoot laser, Right click to throw seeds.
 
 - [x] Plan more details and animations based on time left.
 
-- [ ] Flesh out the itch.io page
+- [x] Flesh out the itch.io page
 
-- [ ] Submit!
+- [x] Submit!
+
+</p></details>
 
 
 ## Possible future directions (post Game Off)
