@@ -9,6 +9,10 @@ public class Health : MonoBehaviour {
 
 	public bool isDead = false;
 	public float MaxHealth = 100f;
+
+	public float CriticalPollution = 0.8f;
+
+	public float HealthPercent;
 	public bool showHealthBar;
 	public bool fixedBar;
 	public float yOffset = 0.1f;
@@ -24,9 +28,11 @@ public class Health : MonoBehaviour {
 	private void Start() {
 		health = MaxHealth;
 		isDead = false;
+		HealthPercent = health/MaxHealth;
 		if (bar != null) {
 			FindAndMakeFill();
-			fill.value = health/MaxHealth;
+			
+			fill.value = HealthPercent;
 		}
 	}
 
@@ -43,17 +49,22 @@ public class Health : MonoBehaviour {
 			returnValue = health+delta-MaxHealth;
 		}
 		health = Mathf.Clamp(health+delta,0f,MaxHealth);
+		HealthPercent = health/MaxHealth;
 		RefreshHealthBar();
 		CheckDie();
 		return returnValue;
 	}
 
 	private void FixedUpdate() {
-		if(PauseMenu.IsPaused) {
+		if(Gameplay.IsPaused) {
 			return;
 		}
-		if (pollutionDamage >0f) {
-			TakeDamage(pollutionDamage*((2f*GameManager.instance.PollutionPercentage)-0.5f));
+		if (pollutionDamage > 0f) {
+			float damage = pollutionDamage*((2f*GameManager.instance.PollutionPercentage)-0.5f);
+			if(GameManager.instance.PollutionPercentage >= CriticalPollution) {
+				damage *= 2;
+			}
+			TakeDamage(damage);
 		}
 		RepositionBar();
 	}
@@ -66,7 +77,7 @@ public class Health : MonoBehaviour {
 			bar = Instantiate(GameManager.instance.HealthBar);
 			FindAndMakeFill();
 		}
-		fill.value = health/MaxHealth;
+		fill.value = HealthPercent;
 	}
 
 	void FindAndMakeFill() {

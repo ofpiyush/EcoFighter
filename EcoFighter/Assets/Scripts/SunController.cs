@@ -9,7 +9,7 @@ public class SunController : MonoBehaviour
 
     void FixedUpdate()
     {
-		if(PauseMenu.IsPaused) {
+		if(Gameplay.IsPaused) {
 			return;
 		}
 

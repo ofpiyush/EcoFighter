@@ -24,7 +24,7 @@ public class PlayerRotator : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-		if(PauseMenu.IsPaused) {
+		if(Gameplay.IsPaused) {
 			return;
 		}
 
@@ -34,7 +34,7 @@ public class PlayerRotator : MonoBehaviour
 
     void FixedUpdate()
     {
-		if(PauseMenu.IsPaused) {
+		if(Gameplay.IsPaused) {
 			return;
 		}
 

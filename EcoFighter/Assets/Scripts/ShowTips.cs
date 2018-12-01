@@ -17,26 +17,27 @@ public class ShowTips : MonoBehaviour {
 	}
 	void Start () {
 		current = 0;
-		NextTip();
+		ShowTip();
 	}
 
+	void ShowTip() {
+		if(tips.Count> 0) {
+			TipText.text = tips[current];
+		}
+	}
 	public void NextTip() {
 		current ++;
 		if(current == tips.Count) {
 			current = 0;
 		}
-		if(tips.Count> 0) {
-			TipText.text = tips[current];
-		}
+		ShowTip();
 	}
 	public void PreviousTip() {
 		current--;
 		if(current == 0) {
 			current = tips.Count-1;
 		}
-		if(tips.Count> 0) {
-			TipText.text = tips[current];
-		}
+		ShowTip();
 	}
 	
 }

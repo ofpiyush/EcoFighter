@@ -21,7 +21,7 @@ public class SunPower : MonoBehaviour {
     }
 	// Update is called once per frame
 	void FixedUpdate () {
-		if(PauseMenu.IsPaused) {
+		if(Gameplay.IsPaused) {
 			return;
 		}
 

@@ -25,7 +25,7 @@ public class EnemyController : MonoBehaviour
     float lastInstantiatedTimer;
     int sec;
 
-    bool isNearPlayer = false;
+    public bool isNearPlayer = false;
     NavMeshAgent agent;
     Health health;
 
@@ -43,7 +43,7 @@ public class EnemyController : MonoBehaviour
 
     void FixedUpdate()
     {
-		if(PauseMenu.IsPaused) {
+		if(Gameplay.IsPaused) {
 			return;
 		}
         //RandomMove();

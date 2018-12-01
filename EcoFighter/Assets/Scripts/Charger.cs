@@ -11,18 +11,20 @@ public class Charger : MonoBehaviour {
 	public float chargeRate = 1f;
 
 	public float initialCharge = 10f;
+	public float ChargePercentage = 0f;
 	float charge;
 
 	public Slider fill;
 	private void Awake() {
 		charge = initialCharge;
+		ChargePercentage = charge/MaxCharge;
 	}
 
 	private void Start() {
 		DrawFill();
 	}
 	void FixedUpdate () {
-		if(PauseMenu.IsPaused) {
+		if(Gameplay.IsPaused) {
 			return;
 		}
 		Recharge();
@@ -56,7 +58,7 @@ public class Charger : MonoBehaviour {
     }
 
 	void DrawFill() {
-		float ChargePercentage = charge/MaxCharge;
+		ChargePercentage = charge/MaxCharge;
 
 		if(fill != null) {
 			fill.value = ChargePercentage;

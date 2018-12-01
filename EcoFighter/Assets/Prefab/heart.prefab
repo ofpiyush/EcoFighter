@@ -289,7 +289,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd6de32c75b2cd9438e3015987bf0732, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Count: 0
+  Count: 1
   MaxCount: 1
   Unit: 100
   Name: PlayerHealth

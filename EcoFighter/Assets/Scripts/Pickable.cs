@@ -4,6 +4,7 @@ using UnityEngine;
 
 
 public delegate void OnPick(int count, float unit);
+public delegate void NotifyManager(string Name);
 public class Pickable: MonoBehaviour {
 	public int Count = 0;
 	public int MaxCount = 0;
@@ -13,6 +14,8 @@ public class Pickable: MonoBehaviour {
 	public float AutoDestroyAfter = 30f;
 
 	OnPick onPick;
+
+	NotifyManager NotifyLevelManager;
 
 	GameObject target;
 	AudioSource audioSource;
@@ -33,6 +36,9 @@ public class Pickable: MonoBehaviour {
 		timer = 0f;
 	}
 
+	public void SetNotifier(NotifyManager notifier) {
+		NotifyLevelManager = notifier;
+	}
 	public void Pick(GameObject follow, OnPick pickAction) {
 		AutoDestroyAfter = 10000f;
 		onPick = pickAction;
@@ -82,6 +88,9 @@ public class Pickable: MonoBehaviour {
 
 		// Call onpick
 		onPick(Count, Unit);
+		if(NotifyLevelManager != null) {
+			NotifyLevelManager(Name);
+		}
 		
 		transform.localScale *= 0.0001f;
 		Destroy(gameObject, 5f);

@@ -10,7 +10,7 @@ public class EnemyKiller : MonoBehaviour {
 		ctl = GetComponentInParent<EnemyController>();
 	}
 	private void OnTriggerEnter(Collider other) {
-		if(PauseMenu.IsPaused) {
+		if(Gameplay.IsPaused) {
 			return;
 		}
 		if(other.tag =="Player") {
@@ -19,7 +19,7 @@ public class EnemyKiller : MonoBehaviour {
 	}
 
 	private void OnTriggerStay(Collider other) {
-		if(PauseMenu.IsPaused) {
+		if(Gameplay.IsPaused) {
 			return;
 		}
 		if(other.tag == "Vegetation") {

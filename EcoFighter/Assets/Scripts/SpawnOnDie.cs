@@ -17,8 +17,9 @@ public class SpawnOnDie : Spawner {
 	}
 
 	void Die() {
-		// Increase probability every 10 seconds of life
+
 		if( (start-LevelManager.RemainingGameTime) > 5f) {
+			// Increase volume every 10 seconds of life
 			ForceSpawn(Random.Range(1,(int)((start - LevelManager.RemainingGameTime)/10f)));
 		}
 		// Todo: allow registering animation or something else

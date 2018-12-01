@@ -15,8 +15,10 @@ public class GunController : MonoBehaviour {
     public float range = 15f;
     public ParticleSystem muzzleFlash;
 
+    public GameObject hitAnim;
+
     public float ThrowForce = 1f;
-    int Seeds = 5;
+    int Seeds = 15;
     int MaxSeeds = 50;
     public TextMeshProUGUI SeedCount;
     public Transform SpawnPoint;
@@ -48,7 +50,7 @@ public class GunController : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-        if(PauseMenu.IsPaused) {
+        if(Gameplay.IsPaused) {
 			return;
 		}
         if(Input.GetButtonDown("Fire1"))  {
@@ -85,6 +87,8 @@ public class GunController : MonoBehaviour {
             if (hit.collider.tag == "Enemy") {
 
                 hit.collider.GetComponent<Health>().TakeDamage(damage);
+                //hit.normal
+                //Instantiate(hitAnim,hit.point,Quaternion.LookRotation(hit.normal));
                 //Debug.DrawRay(transform.position, transform.position + (transform.forward * range), Color.red);
             }
             if (hit.collider.tag == "Vegetation") {

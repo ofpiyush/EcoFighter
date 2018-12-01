@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class Gameplay: MonoBehaviour {
 	public static bool IsPaused = false;
+	public static bool IsGameEnded = false;
 
 	protected void DoPause() {
 		Time.timeScale = 0f;
@@ -26,6 +27,7 @@ public class PauseMenu : Gameplay {
 
 	public GameObject PauseUI;
 	private AudioSource happy;
+	public AudioSource mainMusic;
 
 	private void Awake() {
 		happy = GetComponent<AudioSource>();
@@ -33,6 +35,9 @@ public class PauseMenu : Gameplay {
 	
 	// Update is called once per frame
 	void Update () {
+		if (IsGameEnded) {
+			return;
+		}
 		if(Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown("joystick button 7")) {
 			if(IsPaused) {
 				Resume();
@@ -47,12 +52,14 @@ public class PauseMenu : Gameplay {
 	void Pause() {
 		DoPause();
 		PauseUI.SetActive(true);
+		mainMusic.Stop();
 		happy.Play(0);
 	}
 	public void Resume() {
+		happy.Stop();
+		mainMusic.Play(0);
 		PauseUI.SetActive(false);
 		DoResume();
-		happy.Stop();
 	}
 
 
@@ -61,7 +68,10 @@ public class PauseMenu : Gameplay {
 		SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 	}
 	public void LoadMenu() {
-		SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex-1);
+		SceneManager.LoadScene(0);
+	}
+	public void LoadCredits() {
+		SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1);
 	}
 	public void Quit() {
 		Application.Quit();
