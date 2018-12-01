@@ -239,7 +239,9 @@ public class LevelManager : Gameplay
 
     public void GameOver() {
         string reason = "";
-        if(Enemy.GetComponent<EnemyController>().isNearPlayer) {
+        if(RemainingGameTime <= 0f) {
+            reason = "Ran out of time!";
+        } else if(Enemy.GetComponent<EnemyController>().isNearPlayer) {
             reason = "Fried by Voxella.";
         } else {
             reason = "Suffocated by pollution.";
