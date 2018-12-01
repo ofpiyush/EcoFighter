@@ -184,7 +184,6 @@ public class GunController : MonoBehaviour {
         //yield return shotDuration;
         float start = Time.time;
         float elapsed = 0;
-        bool isDoneCalling = false;
 
         while(elapsed < shotDuration) {
             RaycastHit hit;
