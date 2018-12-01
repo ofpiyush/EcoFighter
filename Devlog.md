@@ -3,6 +3,8 @@
 ## 1st December
 We went through a lot of changes in the last couple of days. The game may have bugs as we cut it too close to the deadline and made a bunch of last day changes.
 
+The game is live on ofpiyush.itch.io/ecofighter
+
 ## 29th November
 
 We now have enemy fire and factory exhaust! Made a simple main menu from the level as a sort of sandbox for players to get used to the mechanics of the game. Designed a logo for the game and made a bunch of bugfixes today. It feels like we might have a working game after all!
